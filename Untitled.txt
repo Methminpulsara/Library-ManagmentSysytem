@@ -1,0 +1,34 @@
+
+
+create database Library ;
+use library;
+drop table admin ;
+create table admin (email VARCHAR (200) NOT NULL , password VARCHAR (200)NOT NULL  , Constraint primary key (password));
+insert into admin values ('1','1');
+insert into admin values ('1','1');
+
+
+
+
+use library;
+drop table book;
+create table book (
+BookID VARCHAR (200)UNIQUE NOT NULL,
+ISBN VARCHAR(200)UNIQUE NOT NULL,
+Titel VARCHAR (200) ,
+Author VARCHAR (200),
+Availability VARCHAR (100) ,
+CONSTRAINT PRIMARY KEY  (BOOKID)
+);
+
+
+CREATE TABLE Borrowing_Records (
+    RecordID VARCHAR (200) PRIMARY KEY , 
+    UserID VARCHAR (200) NOT NULL,                    
+    BookID VARCHAR (200) NOT NULL,                     
+    BorrowDate VARCHAR (200) NOT NULL,                
+    ReturnDate VARCHAR (200) NOT NULL,                         
+    Fine VARCHAR(100) ,        
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE, 
+    FOREIGN KEY (BookID) REFERENCES Book(BookID) ON DELETE CASCADE  
+);

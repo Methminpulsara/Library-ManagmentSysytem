@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainancherpane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: E5D9F2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.login.Login_form">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="27.0" layoutY="28.0" stroke="#cdc1ff" strokeLineCap="ROUND" strokeType="INSIDE" width="651.0" />
+      <JFXButton buttonType="RAISED" layoutX="422.0" layoutY="272.0" onAction="#btnloginOnAction" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #5E1675;" text="login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="419.0" layoutY="58.0" prefHeight="40.0" prefWidth="145.0" text="Login">
+         <font>
+            <Font name="Showcard Gothic" size="34.0" />
+         </font>
+      </Label>
+      <TextField fx:id="adminemail" layoutX="422.0" layoutY="143.0" prefHeight="25.0" prefWidth="209.0" promptText="emali" />
+      <Label layoutX="422.0" layoutY="127.0" prefHeight="12.0" prefWidth="37.0" text="email" textFill="#5e1675">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="422.0" layoutY="182.0" prefHeight="17.0" prefWidth="61.0" text="password" textFill="#5e1675">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="543.0" layoutY="231.0" onMouseClicked="#lblforgetOnAction" prefHeight="17.0" prefWidth="87.0" text="forget password ?" textFill="#5e1675">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="350.0" fitWidth="341.0" layoutX="29.0" layoutY="30.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../images/login.jpg" />
+         </image></ImageView>
+      <PasswordField fx:id="abminpassword" layoutX="422.0" layoutY="199.0" prefHeight="25.0" prefWidth="209.0" promptText="password" />
+   </children>
+</AnchorPane>
