@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller">
+   <children>
+      <!-- Background Image -->
+      <ImageView fitHeight="400.0" fitWidth="600.0" preserveRatio="false">
+         <image>
+            <Image url="@../images/library_background.jpg" />
+         </image>
+      </ImageView>
+
+      <!-- Form Container -->
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15;">
+         <children>
+            <JFXComboBox fx:id="record_cmb" layoutX="50.0" layoutY="50.0" onAction="#record_cmb_OnAction" prefHeight="30.0" prefWidth="200.0" promptText="Record ID" styleClass="modern-combo" />
+            <Label layoutX="50.0" layoutY="100.0" prefHeight="27.0" prefWidth="105.0" text="Return ID -&gt;" styleClass="modern-label">
+               <font>
+                  <Font name="Bauhaus 93" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRecordID" layoutX="150.0" layoutY="100.0" prefHeight="37.0" prefWidth="83.0" text="1" textFill="RED" styleClass="modern-label">
+               <font>
+                  <Font name="Bauhaus 93" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="140.0" prefHeight="17.0" prefWidth="58.0" text="User ID : " styleClass="modern-label" />
+            <Label fx:id="lbluser" layoutX="120.0" layoutY="140.0" prefHeight="17.0" prefWidth="43.0" text="C001" styleClass="modern-label" />
+            <Label layoutX="50.0" layoutY="170.0" prefHeight="17.0" prefWidth="52.0" text="Book ID : " styleClass="modern-label" />
+            <Label fx:id="lblbookid" layoutX="120.0" layoutY="170.0" prefHeight="17.0" prefWidth="43.0" text="B001" styleClass="modern-label" />
+            <Label layoutX="50.0" layoutY="200.0" prefHeight="17.0" prefWidth="83.0" text="Borrow Date :" styleClass="modern-label" />
+            <Label fx:id="lblborrowdate" layoutX="150.0" layoutY="200.0" prefHeight="17.0" prefWidth="83.0" styleClass="modern-label" />
+            <Label layoutX="50.0" layoutY="230.0" prefHeight="17.0" prefWidth="83.0" text="Return Date :" styleClass="modern-label" />
+            <Label fx:id="lblreturndate" layoutX="150.0" layoutY="230.0" prefHeight="17.0" prefWidth="83.0" styleClass="modern-label" />
+            <TextField fx:id="Tamount" layoutX="50.0" layoutY="260.0" prefHeight="30.0" prefWidth="200.0" promptText="Fine Amount" styleClass="modern-textfield" />
+            <JFXButton layoutX="50.0" layoutY="310.0" onAction="#btnRetureenONAction" text="Return" styleClass="modern-button">
+               <font>
+                  <Font name="Candara Bold" size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

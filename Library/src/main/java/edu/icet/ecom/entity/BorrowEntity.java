@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class BorrowEntity {
 
-    private String orderID;
+    private int orderID;
     private String UserID;
     private String BookID;
     private String date;

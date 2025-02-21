@@ -47,13 +47,15 @@ public class Book_form {
     @Inject
     private Book_service service ;
     @FXML
+
+
     void btnAddOnAction(ActionEvent event) {
 
         if (service.saveBook(new Book(Tbookid.getText(),
                 Tisbn.getText(),
                 Ttitel.getText(),
                 Tauthor.getText(),
-                "Have"))){
+                "Available"))){
             new Alert(Alert.AlertType.INFORMATION,"Book is Added ! ").show();return;
         }new Alert(Alert.AlertType.INFORMATION,"can't Add !").show();
 

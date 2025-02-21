@@ -36,7 +36,12 @@ public class HomeForm {
     }
 
     @FXML
-    void btnbroowONACTION(MouseEvent event) {
+    void btnbroowONACTION(MouseEvent event) throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/borrowbook/Borrow_form.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
 
     }
 
@@ -56,8 +61,13 @@ public class HomeForm {
     }
 
     @FXML
-    void btnreturnONACTION(MouseEvent event) {
+    void btnreturnONACTION(MouseEvent event) throws IOException {
 
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader=new FXMLLoader( this.getClass().getResource("/returnbook/returnbookform.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
     }
 
     @FXML
@@ -81,4 +91,11 @@ public class HomeForm {
     }
 
 
+    public void btnFineOnActions(MouseEvent mouseEvent) throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/fine/Fine_form.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
+    }
 }

@@ -1,8 +1,6 @@
 package edu.icet.ecom.repository;
 
-import edu.icet.ecom.repository.custom.impl.BookDao_impl;
-import edu.icet.ecom.repository.custom.impl.BorrowDao_Impl;
-import edu.icet.ecom.repository.custom.impl.UserDao_impl;
+import edu.icet.ecom.repository.custom.impl.*;
 import edu.icet.ecom.util.Dao_type;
 
 public class DaoFactory {
@@ -17,6 +15,8 @@ public class DaoFactory {
             case  BOOK: return (T) BookDao_impl.getInstance();
             case USER:  return (T) UserDao_impl.getInstance();
             case BORROW: return (T) BorrowDao_Impl.getInstance();
+            case RETURNBOOK: return (T) ReturnBookDao_Impl.getInstance();
+            case FINE: return (T) FineDao_Impl.getInstance();
         }
         return null;
     }

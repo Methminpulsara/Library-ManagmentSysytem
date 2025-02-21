@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.HomeForm">
+   <children>
+      <!-- Background Image -->
+      <ImageView fitHeight="550.0" fitWidth="850.0" preserveRatio="false">
+         <image>
+            <Image url="@../images/library_background.jpg" />
+         </image>
+      </ImageView>
+
+      <!-- Sidebar -->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#202040" height="550.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+
+      <!-- Sidebar Icons and Labels -->
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="46.0" layoutY="116.0" onMousePressed="#btnuserOnAction" prefHeight="18.0" prefWidth="80.0" text="Add User" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/book.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="47.0" layoutY="149.0" onMousePressed="#btnbookONACTION" prefHeight="20.0" prefWidth="80.0" text="Add Book" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/usersetting.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="46.0" layoutY="185.0" onMousePressed="#btnusermanegmentOnAction" prefHeight="18.0" prefWidth="91.0" text="User Management" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="13.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/booksettings.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="220.0" onMousePressed="#btnookmanegmentONACTION" prefHeight="18.0" prefWidth="100.0" text="Books Management" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-borrow-book-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="254.0" onMousePressed="#btnbroowONACTION" prefHeight="18.0" prefWidth="80.0" text="Borrow Books" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="15.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-return-book-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="286.0" onMousePressed="#btnreturnONACTION" prefHeight="18.0" prefWidth="80.0" text="Return Books" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="10.0" fitWidth="10.0" layoutX="27.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-settings-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="323.0" onMousePressed="#btnFineOnActions" prefHeight="18.0" prefWidth="91.0" text="Fine Calculator" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </Label>
+
+      <!-- Exit Button -->
+      <JFXButton layoutX="21.0" layoutY="365.0" onAction="#btnexitOnAction" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #046E78;" text="Exit" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+
+      <!-- Content Area -->
+      <AnchorPane fx:id="setancherpane" layoutX="200.0" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15;">
+         <children>
+            <Label layoutX="20.0" layoutY="20.0" text="Welcome to the Library Management System" styleClass="modern-label">
+               <font>
+                  <Font name="Bauhaus 93" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutX="20.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/library_content.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="20.0" layoutY="270.0" text="Explore our vast collection of books and manage your library efficiently." styleClass="modern-label">
+               <font>
+                  <Font name="Bauhaus 93" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

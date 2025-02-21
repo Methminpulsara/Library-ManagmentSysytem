@@ -5,48 +5,68 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #474787;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.user.user_manegment.user_manegmentForm">
+<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #474787;" stylesheets="@../css/txt.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.user.user_manegment.user_manegmentForm">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="550.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="650.0">
+         <fill>
+            <LinearGradient endX="0.15457412647524094" endY="0.4889589815109686" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.07058823853731155" green="0.5372549295425415" blue="0.6549019813537598" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.10588235408067703" green="0.0784313753247261" blue="0.3921568691730499" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <Label layoutX="23.0" layoutY="25.0" prefHeight="38.0" prefWidth="283.0" text="User Manegmnet " textFill="#7cfff6">
          <font>
             <Font name="Bauhaus 93" size="33.0" />
          </font>
       </Label>
-      <TextField fx:id="Tuserid" layoutX="19.0" layoutY="73.0" prefHeight="25.0" prefWidth="471.0" promptText="search : userid" />
+      <TextField fx:id="Tuserid" layoutX="19.0" layoutY="73.0" prefHeight="25.0" prefWidth="471.0" promptText="search : userid" style="-fx-border-color: black;" />
       <JFXButton layoutX="501.0" layoutY="73.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #a29bfe;" text="Search" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
       <TextField fx:id="Tusername" layoutX="23.0" layoutY="129.0" prefHeight="25.0" prefWidth="283.0" promptText="username" />
-      <TextField fx:id="Tcontactnumber" layoutX="366.0" layoutY="129.0" prefHeight="25.0" prefWidth="226.0" promptText="contact number" />
+      <TextField fx:id="Tcontactnumber" layoutX="335.0" layoutY="129.0" prefHeight="35.0" prefWidth="257.0" promptText="contact number" />
       <TextField fx:id="Tmembershipdate" layoutX="20.0" layoutY="192.0" prefHeight="25.0" prefWidth="283.0" promptText="membership date " />
-      <Label layoutX="21.0" layoutY="106.0" prefHeight="25.0" prefWidth="73.0" text="user name " textFill="#a8a3ef">
+      <Label layoutX="21.0" layoutY="106.0" prefHeight="25.0" prefWidth="73.0" text="user name " textFill="#f4f4f4">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="317.0" layoutY="106.0" prefHeight="25.0" prefWidth="81.0" text="contact number" textFill="#a8a3ef">
+      <Label layoutX="366.0" layoutY="106.0" prefHeight="25.0" prefWidth="81.0" text="contact number" textFill="#efefef">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="171.0" prefHeight="25.0" prefWidth="95.0" text="membership date" textFill="#a8a3ef">
+      <Label layoutX="22.0" layoutY="171.0" prefHeight="25.0" prefWidth="95.0" text="membership date" textFill="#dddddd">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <TableView fx:id="tbluser" layoutX="21.0" layoutY="288.0" prefHeight="243.0" prefWidth="607.0">
+      <TableView fx:id="tbluser" layoutX="21.0" layoutY="288.0" prefHeight="243.0" prefWidth="607.0" stylesheets="@../css/style.css">
         <columns>
           <TableColumn fx:id="coluserid" prefWidth="102.6666259765625" text="User Id " />
           <TableColumn fx:id="colusername" prefWidth="159.33334350585938" text="User Name " />
-            <TableColumn fx:id="colcontactnumber" prefWidth="133.33331298828125" text="Contact Number" />
-            <TableColumn fx:id="colmembershipdate" prefWidth="152.66668701171875" text="Membership Date " />
+            <TableColumn fx:id="colcontactnumber" prefWidth="166.6666259765625" text="Contact Number" />
+            <TableColumn fx:id="colmembershipdate" prefWidth="168.66665649414062" text="Membership Date " />
         </columns>
       </TableView>
       <JFXButton layoutX="358.0" layoutY="234.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #34ace0;" text="Update" textFill="WHITE">
@@ -58,18 +78,6 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
-      </JFXButton>
-      <JFXButton onAction="#btnbackOnAction" text="back" textFill="#f4efef">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="23.0" onMouseClicked="#imgbackOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/back.png" />
-               </image>
-            </ImageView>
-         </graphic>
       </JFXButton>
    </children>
 </AnchorPane>

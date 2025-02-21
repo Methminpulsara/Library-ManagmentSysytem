@@ -9,5 +9,4 @@ public interface CrudDao <T,ID> extends SuperDao {
     boolean update(T entity);
     boolean delete (ID id);
     T search (ID id);
-
 }

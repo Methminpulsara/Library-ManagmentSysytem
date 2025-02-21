@@ -5,80 +5,83 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.book.bookmanegment.BookManegment_form">
+<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #5758BB;" stylesheets="@../css/txt.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.book.bookmanegment.BookManegment_form">
    <children>
-      <ImageView fitHeight="518.0" fitWidth="660.0" layoutY="-3.0" opacity="0.41" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@../images/bmback.jpg" />
-         </image>
-      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="550.0" layoutX="3.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="650.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.8769716359087345" startX="0.022082042994935436" startY="0.2839116734285084">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.34117648005485535" green="0.3450980484485626" blue="0.7333333492279053" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <Label layoutX="30.0" layoutY="35.0" prefHeight="38.0" prefWidth="283.0" text="Book Manegmnet " textFill="#05030b">
          <font>
             <Font name="Bauhaus 93" size="33.0" />
          </font>
       </Label>
       <TextField fx:id="Tbookid" layoutX="27.0" layoutY="84.0" prefHeight="25.0" prefWidth="471.0" promptText="search : bookid" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <JFXButton layoutX="509.0" layoutY="84.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #a29bfe; -fx-border-radius: 100;" text="Search" textFill="WHITE">
+      <JFXButton layoutX="509.0" layoutY="84.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #a29bfe; -fx-border-radius: 100;" text="Search" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="Tisbn" layoutX="28.0" layoutY="130.0" prefHeight="25.0" prefWidth="248.0" promptText="ISBN" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <TextField fx:id="Ttitel" layoutX="324.0" layoutY="130.0" prefHeight="25.0" prefWidth="248.0" promptText="titel" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <TextField fx:id="Tauthor" layoutX="28.0" layoutY="176.0" prefHeight="25.0" prefWidth="248.0" promptText="author" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <Label layoutX="29.0" layoutY="107.0" prefHeight="25.0" prefWidth="73.0" text="user name " textFill="#a8a3ef">
+      <TextField fx:id="Tisbn" layoutX="28.0" layoutY="134.0" prefHeight="25.0" prefWidth="248.0" promptText="ISBN" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
+      <TextField fx:id="Ttitel" layoutX="324.0" layoutY="135.0" prefHeight="25.0" prefWidth="248.0" promptText="titel" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
+      <TextField fx:id="Tauthor" layoutX="28.0" layoutY="191.0" prefHeight="25.0" prefWidth="248.0" promptText="author" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
+      <Label layoutX="30.0" layoutY="115.0" prefHeight="25.0" prefWidth="73.0" text="Book isbn" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="325.0" layoutY="107.0" prefHeight="25.0" prefWidth="81.0" text="contact number" textFill="#a8a3ef">
+      <Label layoutX="326.0" layoutY="115.0" prefHeight="25.0" prefWidth="81.0" text="Titele" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="155.0" prefHeight="25.0" prefWidth="95.0" text="membership date" textFill="#a8a3ef">
+      <Label layoutX="30.0" layoutY="169.0" prefHeight="25.0" prefWidth="95.0" text="Author" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <TableView fx:id="tblbook" layoutX="42.0" layoutY="277.0" opacity="0.84" prefHeight="202.0" prefWidth="575.0">
+      <TableView fx:id="tblbook" layoutX="42.0" layoutY="310.0" opacity="0.84" prefHeight="202.0" prefWidth="575.0">
          <columns>
             <TableColumn fx:id="colid" prefWidth="72.66665649414062" text="Book id" />
             <TableColumn fx:id="colisbn" prefWidth="112.6666259765625" text="ISBN" />
             <TableColumn fx:id="coltitel" prefWidth="149.33331298828125" text="Titel" />
-            <TableColumn fx:id="colauthor" prefWidth="123.99993896484375" text="Author" />
             <TableColumn fx:id="colavelibility" prefWidth="120.666748046875" text="Avelability" />
+            <TableColumn fx:id="colauthor" prefWidth="123.99993896484375" text="Author" />
          </columns>
       </TableView>
-      <JFXButton layoutX="325.0" layoutY="216.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #34ace0;" text="Update" textFill="WHITE">
+      <JFXButton layoutX="323.0" layoutY="254.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #34ace0;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="453.0" layoutY="215.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #ff5252;" text="Delete" textFill="WHITE">
+      <JFXButton layoutX="451.0" layoutY="254.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #ff5252;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="2.0" onAction="#btnbackOnAction" text="back" textFill="#f4efef">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="17.0" fitWidth="23.0" onMouseClicked="#imgbackOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/back.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <TextField fx:id="Tavelability" layoutX="323.0" layoutY="176.0" prefHeight="25.0" prefWidth="248.0" promptText="avelability" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <Label layoutX="325.0" layoutY="155.0" prefHeight="25.0" prefWidth="81.0" text="avelability" textFill="#a8a3ef">
+      <TextField fx:id="Tavelability" layoutX="324.0" layoutY="191.0" prefHeight="25.0" prefWidth="248.0" promptText="avelability" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
+      <Label layoutX="325.0" layoutY="169.0" prefHeight="25.0" prefWidth="81.0" text="avelability" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>

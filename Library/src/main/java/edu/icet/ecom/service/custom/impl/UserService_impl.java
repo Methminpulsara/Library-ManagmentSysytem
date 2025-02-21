@@ -18,6 +18,7 @@ public class UserService_impl implements User_service {
 
     @Inject
     private UserDao dao ;
+
     ModelMapper mapper = new ModelMapper();
 
     private static UserService_impl instence;
@@ -67,5 +68,15 @@ public class UserService_impl implements User_service {
     public User_entity serchUser(String user_ID) {
         return dao.search(user_ID);
 
+    }
+
+    @Override
+    public boolean updateFine(String userID, Double fine) {
+        return dao.updateFine(userID,fine);
+    }
+
+    @Override
+    public boolean updatePayment(String userID, Double fine) {
+        return dao.updatePayment(userID,fine);
     }
 }

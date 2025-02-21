@@ -1,6 +1,7 @@
 package edu.icet.ecom.controller.borrow;
 
 import com.google.inject.Inject;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.ecom.model.Borrow;
@@ -21,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import org.checkerframework.checker.units.qual.C;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -35,10 +37,11 @@ public class Borrow_form  implements Initializable {
     public TableColumn colBorrowdate;
     public TableColumn colreturndate;
     public TableColumn colFine;
-    public JFXTextField Torderid;
     public TextField Tfine;
     public JFXTextField returndate;
     public DatePicker datepiker;
+    public Label Torderid;
+    public JFXButton btnplace;
     @FXML
     private JFXComboBox book_cmb;
 
@@ -78,12 +81,6 @@ public class Borrow_form  implements Initializable {
     @FXML
     void user_cmb_OnAction(ActionEvent event) {
     }
-
-
-
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -92,45 +89,39 @@ public class Borrow_form  implements Initializable {
         setBook_IDS();
         setDate();
         setORder_ID();
+        btnplace.setDisable(false);
     }
 
     private void setORder_ID (){
-        String lastBarrowID = borrowService.getLastBarrowID();
-
-        int lastDigit=0;
-
-        if (lastBarrowID!=null){
-             String   substring = lastBarrowID.substring(1);
-            lastDigit = Integer.parseInt(substring);
-            Torderid.setText(String.format("O%03d",lastDigit+1));
-        }else {
-           Torderid.setText("0001");
-        }
+//        int lastBarrowID = borrowService.getLastBarrowID();
+//        String id = String.valueOf(lastBarrowID);
+//        if (id!= null){
+//            Torderid.setText(id);
+//        }else {
+//            Torderid.setText("1");
+//        }
     }
 
 
-    private void loadTabele(){ colOrderID.setCellValueFactory(new PropertyValueFactory<>("orderid"));
+    private void loadTabele(){
         colBookID.setCellValueFactory(new PropertyValueFactory<>("bookid"));
         colBorrowdate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colreturndate.setCellValueFactory(new PropertyValueFactory<>("returndate"));
-      //  colFine.setCellValueFactory(new PropertyValueFactory<>("avelability"));
     }
 
     private  ObservableList<Cart> carts = FXCollections.observableArrayList();
 
     public void btnaddOnAction(ActionEvent actionEvent) {
-
-        carts.add(new Cart(
-                Torderid.getText(),
+         carts.add(new Cart(
+                 user_cmb.getValue().toString(),
                 book_cmb.getValue().toString(),
                 lbldate.getText(),
                 datepiker.getValue().toString())
         );
         tblBorrwDetails.setItems(carts);
-
-
         loadTabele();
         setORder_ID();
+        setBook_IDS();
     }
 
 
@@ -138,36 +129,35 @@ public class Borrow_form  implements Initializable {
     public void btnPlaceOnAction(ActionEvent actionEvent) {
         boolean place =true;
         for (Cart cart : carts) {
-            place = borrowService.placeOrder(new Borrow(
-                    cart.getOrderid(),
-                    user_cmb.getValue().toString(),
-                    cart.getBookid(),
-                    cart.getDate(),
-                    cart.getReturndate(),
-                    "Place"
-            ));
+            try {
+                place = borrowService.placeOrder(new Borrow(
+                        1,
+                        cart.getUserID(),
+                        cart.getBookid(),
+                        cart.getDate(),
+                        cart.getReturndate(),
+                        "Place"
+                ));
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
-
-//    boolean isAdded= borrowService.placeOrder(
-//           new Borrow(Torderid.getText(),
-//                   user_cmb.getValue().toString(),
-//                   book_cmb.getValue().toString(),
-//                   lbldate.getText(),
-//                   datereturn.getValue().toString(),
-//                   "Place"));
    if (place){
        new Alert(Alert.AlertType.INFORMATION,"Your Order Is Done ! ").show();
        setORder_ID();
+       setBook_IDS();
+       removetabel();
+
    }else {
        new Alert(Alert.AlertType.INFORMATION,"Your Order can't Place ! ").show();
    }
 
+    }
 
 
-
-
-
-
+    void removetabel(){
+        carts.clear();
+        tblBorrwDetails.refresh();
     }
 }

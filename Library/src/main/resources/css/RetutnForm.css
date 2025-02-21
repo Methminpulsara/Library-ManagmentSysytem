@@ -1,0 +1,28 @@
+/* Background */
+.root {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Buttons */
+.jfx-button {
+    -fx-background-radius: 10px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.jfx-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Input Fields */
+.text-field, .combo-box, .date-picker {
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}

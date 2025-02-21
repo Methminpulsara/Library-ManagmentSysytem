@@ -29,7 +29,7 @@ public class Login_form {
 
         try {
                 if( Login_formController.getInstance().login(new Admin(adminemail.getText(),abminpassword.getText()))){
-                    URL resourse = this.getClass().getResource("/dhashboard/Dashboardform.fxml");
+                    URL resourse = this.getClass().getResource("/home/Home_form .fxml");
                     assert resourse!=null;
                     Parent load = FXMLLoader.load(resourse);
                   this.mainancherpane.getChildren().clear();

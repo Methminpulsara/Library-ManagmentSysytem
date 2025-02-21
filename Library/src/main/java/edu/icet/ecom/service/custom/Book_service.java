@@ -14,6 +14,5 @@ import java.util.List;
     boolean updateBook (Book book);
     boolean deleteBook (String bookid);
     Book_entity searchbook (String bookid);
-
-
-}
+    boolean updateStock(String orderID, String avelability);
+ }

@@ -3,6 +3,7 @@ package edu.icet.ecom.service.custom.impl;
 import com.google.inject.Inject;
 import edu.icet.ecom.entity.Book_entity;
 import edu.icet.ecom.model.Book;
+import edu.icet.ecom.model.Borrow;
 import edu.icet.ecom.repository.DaoFactory;
 import edu.icet.ecom.repository.custom.BookDao;
 import edu.icet.ecom.service.custom.Book_service;
@@ -20,8 +21,8 @@ public class BookService_impl implements Book_service {
      private static BookService_impl instence;
     ModelMapper mapper = new ModelMapper();
 
-
-    private BookDao dao = DaoFactory.getInstance().getDao_type(Dao_type.BOOK);
+    @Inject
+    private BookDao dao ;
 
     public static BookService_impl getInstance(){
         return instence ==null ? instence = new BookService_impl():instence;
@@ -39,10 +40,10 @@ public class BookService_impl implements Book_service {
 
     @Override
     public ObservableList<String> getBook_ids() {
+        List<String> bookids = dao.getBookids();
         ObservableList<String> observableArrayList = FXCollections.observableArrayList();
-        List<Book> allBooks = getAll_books();
-        allBooks.forEach(book -> {
-            observableArrayList.add(book.getBookID());
+        bookids.forEach(book -> {
+            observableArrayList.add(book);
         });
         return observableArrayList;
     }
@@ -69,4 +70,10 @@ public class BookService_impl implements Book_service {
     public Book_entity searchbook(String bookid) {
         return dao.search(bookid);
     }
+
+    @Override
+    public boolean updateStock(String orderID, String avelability) {
+        return dao.updateStock(orderID,avelability);
+    }
+
 }

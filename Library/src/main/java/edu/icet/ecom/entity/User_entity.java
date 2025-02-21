@@ -11,8 +11,9 @@ import lombok.*;
 public class User_entity {
     private String userid ;
     private String name ;
-    private String  contactinformation ;
+    private String contactinformation ;
     private String membershipdate ;
+    private Double fine;
 
 
 }

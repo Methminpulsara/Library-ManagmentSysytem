@@ -42,7 +42,9 @@ public class User_form {
                 Tuserid.getText(),
                 Tusername.getText(),
                 Tcontact.getText(),
-                Tmembershipdat.getText()))){
+                Tmembershipdat.getText(),
+                0.0
+        ))){
             new Alert(Alert.AlertType.INFORMATION,"Added ! ").show();
         }
     }

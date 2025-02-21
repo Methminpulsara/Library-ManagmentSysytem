@@ -67,7 +67,7 @@ public class user_manegmentForm implements Initializable {
             return;
         }
         new Alert(Alert.AlertType.INFORMATION,"User Can't delete  ! ").show();
-        loadTable();
+
     }
 
     @FXML
@@ -85,28 +85,17 @@ public class user_manegmentForm implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-       if (service.updateUesr(new User(Tuserid.getText(),Tusername.getText(),Tcontactnumber.getText(),Tmembershipdate.getText()))){
-           loadTable(); new Alert(Alert.AlertType.INFORMATION,"User is Updated ! ").show();return;
+       if (service.updateUesr(new User(Tuserid.getText(),Tusername.getText(),Tcontactnumber.getText(),Tmembershipdate.getText(),0.0))){
+           new Alert(Alert.AlertType.INFORMATION,"User is Updated ! ").show();
+           return;
        } new Alert(Alert.AlertType.INFORMATION,"User can't Update ! ").show();
 
 
     }
 
-    @FXML
-    void btnbackOnAction(ActionEvent event) throws IOException {
-//        URL resource = this.getClass().getResource("/home/Home_form .fxml");
-//        assert resource!=null;
-//        Parent load = FXMLLoader.load(resource);
-//        this.mainancherpane.getChildren().clear();
-//        this.mainancherpane.getChildren().add(load);
-    }
 
     ObservableList<User>userObservableList = FXCollections.observableArrayList();
     private void loadTable (){
-        coluserid.setCellValueFactory(new PropertyValueFactory<>("userid"));
-        colusername.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colcontactnumber.setCellValueFactory(new PropertyValueFactory<>("contactinformation"));
-        colmembershipdate.setCellValueFactory(new PropertyValueFactory<>("membershipdate"));
 
         List <User> userList = service.getAll();
         userList.forEach(user -> {
@@ -117,7 +106,11 @@ public class user_manegmentForm implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            loadTable();
+        coluserid.setCellValueFactory(new PropertyValueFactory<>("userid"));
+        colusername.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colcontactnumber.setCellValueFactory(new PropertyValueFactory<>("contactinformation"));
+        colmembershipdate.setCellValueFactory(new PropertyValueFactory<>("membershipdate"));
+        loadTable();
     }
 
 
@@ -126,5 +119,9 @@ public class user_manegmentForm implements Initializable {
 
 
     public void imgbackOnAction(MouseEvent mouseEvent) {
+    }
+
+    @FXML
+    void btnbackOnAction(ActionEvent event) throws IOException {
     }
 }

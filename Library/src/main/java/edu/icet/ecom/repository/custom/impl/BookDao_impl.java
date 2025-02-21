@@ -1,10 +1,12 @@
 package edu.icet.ecom.repository.custom.impl;
 
+import edu.icet.ecom.db_connection.Db_Connection;
 import edu.icet.ecom.entity.Book_entity;
 import edu.icet.ecom.model.Book;
 import edu.icet.ecom.repository.custom.BookDao;
 import edu.icet.ecom.util.CrudUtil;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -87,5 +89,32 @@ public class BookDao_impl implements BookDao {
         }
 
         return null;
+    }
+
+    @Override
+    public boolean updateStock(String bookid, String avelability) {
+
+        try {
+            PreparedStatement stm = Db_Connection.getInstance().getConnection().prepareStatement("Update Book set Availability = ? where BookID = ?");
+            stm.setObject(1,avelability );
+            stm.setObject(2, bookid);
+            return stm.executeUpdate()>0;
+        } catch (SQLException e) {
+        }
+        return false;
+    }
+
+    @Override
+    public List<String> getBookids() {
+        List<String> bookList = new ArrayList<>();
+        try {
+            ResultSet res = CrudUtil.execute("SELECT BookID FROM Book WHERE Availability <> 'Place'");
+            while (res.next()) {
+                bookList.add(res.getString(1));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return bookList;
     }
 }

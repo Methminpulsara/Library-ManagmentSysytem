@@ -1,0 +1,55 @@
+/* Root and Background Styling */
+.root {
+    -fx-background-color: #2c3e50;
+}
+
+/* Modern Label Styling */
+.modern-label {
+    -fx-text-fill: #2c3e50; /* Dark text color */
+    -fx-font-size: 14px; /* Consistent font size */
+    -fx-font-weight: bold; /* Bold text */
+}
+
+/* Modern ComboBox Styling */
+.modern-combo {
+    -fx-background-color: white; /* White background */
+    -fx-border-color: #6c5ce7; /* Purple border */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-padding: 5px; /* Padding */
+    -fx-font-size: 14px; /* Font size */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Shadow effect */
+}
+
+.modern-combo .list-cell {
+    -fx-text-fill: #2c3e50; /* Dark text for items */
+}
+
+.modern-combo .list-cell:filled:selected {
+    -fx-background-color: #6c5ce7; /* Purple background for selected item */
+    -fx-text-fill: white; /* White text for selected item */
+}
+
+/* Modern TextField Styling */
+.modern-textfield {
+    -fx-background-color: white; /* White background */
+    -fx-border-color: #6c5ce7; /* Purple border */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-padding: 5px; /* Padding */
+    -fx-font-size: 14px; /* Font size */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Shadow effect */
+}
+
+/* Modern Button Styling */
+.modern-button {
+    -fx-background-color: #6c5ce7; /* Purple background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-padding: 10px 20px; /* Padding */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2); /* Shadow effect */
+}
+
+.modern-button:hover {
+    -fx-background-color: #7c7fe1; /* Lighter purple on hover */
+}
