@@ -127,7 +127,7 @@ public class ReturnBook_Controller implements Initializable {
 
         try {
             if (returnBookService.save(new Return_Book(
-                    Integer.parseInt(lblRecordID.getText()),
+                    1,
                     record_cmb.getValue(),
                     lbluser.getText(),
                     lblbookid.getText(),

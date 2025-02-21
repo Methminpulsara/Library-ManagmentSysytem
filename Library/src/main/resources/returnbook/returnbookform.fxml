@@ -4,67 +4,234 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller"
-            stylesheets="@../css/style.css">
-
+<AnchorPane prefHeight="654.0" prefWidth="910.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller">
    <children>
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="653.0" layoutX="1.0" layoutY="1.0" stroke="TRANSPARENT" width="950.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
+               <stops>
+                  <Stop color="#1a103c" />
+                  <Stop color="#202040" offset="0.5" />
+                  <Stop color="#2e1b65" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
+      </Rectangle>
 
-      <!-- Background Image -->
-      <ImageView fitHeight="445.0" fitWidth="820.0" layoutX="0" layoutY="0">
+      <!-- Decorative elements -->
+      <!-- Glowing orb decoration in top right -->
+      <Rectangle arcHeight="300.0" arcWidth="300.0" height="300.0" layoutX="650.0" layoutY="-100.0" opacity="0.15" width="300.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff00ea" />
+                  <Stop color="#9000ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Glowing orb decoration in bottom left -->
+      <Rectangle arcHeight="250.0" arcWidth="250.0" height="250.0" layoutX="-50.0" layoutY="400.0" opacity="0.1" width="250.0">
+         <fill>
+            <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+               <stops>
+                  <Stop color="#00e1ff" />
+                  <Stop color="#4400ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="40.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Header -->
+      <Label layoutX="50.0" layoutY="40.0" text="Return Books" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Label>
+
+      <Label layoutX="50.0" layoutY="75.0" text="Process book returns and calculate any fines" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+
+      <!-- Left Panel - Return Form with glass morphism -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="400.0" layoutX="50.0" layoutY="110.0" stroke="#ffffff20" strokeWidth="1.0" width="300.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Book Return Icon -->
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="290.0" layoutY="120.0" preserveRatio="true">
          <image>
-            <Image url="@../images/library_returnbooks.jpg" />
+            <Image url="@../images/icons8-return-book-50.png" />
          </image>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </ImageView>
 
-      <!-- Transparent Form Container -->
-      <AnchorPane layoutX="30.0" layoutY="30.0" prefHeight="340.0" prefWidth="540.0"
-                  style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10;">
+      <!-- Return Form Title -->
+      <Label layoutX="70.0" layoutY="130.0" text="Return Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
 
-         <children>
+      <!-- Return ID -->
+      <Label layoutX="70.0" layoutY="170.0" text="Return ID:" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRecordID" layoutX="150.0" layoutY="170.0" prefHeight="20.0" prefWidth="72.0" textFill="#ff9d4f">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow color="#ff9d4f" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
 
-            <!-- Return ID -->
-            <Label layoutX="20.0" layoutY="20.0" text="Return ID:"
-                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
-            <Label fx:id="lblRecordID" layoutX="120.0" layoutY="15.0" text="1"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+      <!-- Record Selection -->
+      <Label layoutX="70.0" layoutY="210.0" text="Select Record" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="record_cmb" layoutX="70.0" layoutY="230.0" onAction="#record_cmb_OnAction" prefHeight="35.0" prefWidth="250.0" promptText="Select Record ID" style="-fx-prompt-text-fill: #a0a0a0; -fx-text-fill: white;" />
 
-            <!-- Record Selection -->
-            <JFXComboBox fx:id="record_cmb" layoutX="20.0" layoutY="60.0" onAction="#record_cmb_OnAction"
-                         prefHeight="35.0" prefWidth="190.0" promptText="Select Record ID" />
+      <!-- Book and User Details -->
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ffffff08" height="150.0" layoutX="70.0" layoutY="280.0" stroke="#ffffff10" strokeType="INSIDE" width="250.0" />
 
-            <!-- User & Book Details -->
-            <Label layoutX="20.0" layoutY="110.0" text="User ID:" style="-fx-font-weight: bold;" />
-            <Label fx:id="lbluser" layoutX="120.0" layoutY="110.0" text="C001" />
+      <Label layoutX="85.0" layoutY="290.0" text="Borrowing Information" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
 
-            <Label layoutX="20.0" layoutY="140.0" text="Book ID:" style="-fx-font-weight: bold;" />
-            <Label fx:id="lblbookid" layoutX="120.0" layoutY="140.0" text="B001" />
+      <Label layoutX="85.0" layoutY="320.0" text="User ID:" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbluser" layoutX="175.0" layoutY="320.0" text="U001" textFill="WHITE">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
 
-            <Label layoutX="20.0" layoutY="170.0" text="Borrow Date:" style="-fx-font-weight: bold;" />
-            <Label fx:id="lblborrowdate" layoutX="120.0" layoutY="170.0" />
+      <Label layoutX="85.0" layoutY="345.0" text="Book ID:" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblbookid" layoutX="175.0" layoutY="345.0" text="B001" textFill="WHITE">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
 
-            <Label layoutX="20.0" layoutY="200.0" text="Return Date:" style="-fx-font-weight: bold;" />
-            <Label fx:id="lblreturndate" layoutX="120.0" layoutY="200.0" />
+      <Label layoutX="85.0" layoutY="370.0" text="Borrow Date:" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblborrowdate" layoutX="175.0" layoutY="370.0" text="2025-02-01" textFill="WHITE">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
 
-            <!-- Fine Amount -->
-            <TextField fx:id="Tamount" layoutX="20.0" layoutY="230.0" prefHeight="30.0" prefWidth="180.0"
-                       promptText="Enter Fine Amount" />
+      <Label layoutX="85.0" layoutY="395.0" text="Return Date:" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblreturndate" layoutX="175.0" layoutY="395.0" text="2025-02-21" textFill="WHITE">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
 
-            <!-- Actual Return Date -->
-            <DatePicker fx:id="actualdate" layoutX="20.0" layoutY="270.0" prefHeight="35.0" prefWidth="184.0" />
+      <!-- Actual Return Date -->
+      <Label layoutX="70.0" layoutY="445.0" text="Actual Return Date" textFill="#d8adff">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="actualdate" layoutX="70.0" layoutY="465.0" prefHeight="35.0" prefWidth="250.0" promptText="Select Actual Return Date" style="-fx-background-color: #ffffff15; -fx-text-fill: white;" />
 
-            <!-- Return Button -->
-            <JFXButton layoutX="20.0" layoutY="320.0" onAction="#btnRetureenONAction" text="Return Book"
-                       style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px;" />
-         </children>
-      </AnchorPane>
+      <!-- Right Panel - Return History with glass morphism -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="400.0" layoutX="370.0" layoutY="110.0" stroke="#ffffff20" strokeWidth="1.0" width="440.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
 
+      <Label layoutX="390.0" layoutY="130.0" text="Return History" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <!-- Return History Table -->
+      <TableView layoutX="390.0" layoutY="170.0" prefHeight="320.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff20; -fx-text-fill: white;">
+         <columns>
+            <TableColumn prefWidth="60.0" text="Return ID" />
+            <TableColumn prefWidth="60.0" text="User ID" />
+            <TableColumn prefWidth="60.0" text="Book ID" />
+            <TableColumn prefWidth="85.0" text="Borrow Date" />
+            <TableColumn prefWidth="85.0" text="Return Date" />
+            <TableColumn prefWidth="50.0" text="Fine" />
+         </columns>
+         <effect>
+            <DropShadow color="#00000040" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </TableView>
+
+      <!-- Return Button -->
+      <JFXButton layoutX="50.0" layoutY="520.0" onAction="#btnRetureenONAction" prefHeight="45.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to right, #ff5e62, #ff9966); -fx-background-radius: 25;" text="Process Return" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-return-book-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="#ff9966" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </JFXButton>
    </children>
 </AnchorPane>

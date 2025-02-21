@@ -5,86 +5,228 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #5758BB;" stylesheets="@../css/txt.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.book.bookmanegment.BookManegment_form">
+<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.book.bookmanegment.BookManegment_form">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="550.0" layoutX="3.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="650.0">
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="600.0" layoutY="4.0" stroke="TRANSPARENT" width="701.0">
          <fill>
-            <LinearGradient endX="1.0" endY="0.8769716359087345" startX="0.022082042994935436" startY="0.2839116734285084">
+            <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
                <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.34117648005485535" green="0.3450980484485626" blue="0.7333333492279053" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
+                  <Stop color="#1a103c" />
+                  <Stop color="#202040" offset="0.5" />
+                  <Stop color="#2e1b65" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
       </Rectangle>
-      <Label layoutX="30.0" layoutY="35.0" prefHeight="38.0" prefWidth="283.0" text="Book Manegmnet " textFill="#05030b">
+
+      <!-- Decorative elements -->
+      <!-- Glowing orb decoration in top right -->
+      <Rectangle arcHeight="250.0" arcWidth="250.0" height="250.0" layoutX="450.0" layoutY="-100.0" opacity="0.15" width="250.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff00ea" />
+                  <Stop color="#9000ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Glowing orb decoration in bottom left -->
+      <Rectangle arcHeight="200.0" arcWidth="200.0" height="200.0" layoutX="-50.0" layoutY="400.0" opacity="0.1" width="200.0">
+         <fill>
+            <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+               <stops>
+                  <Stop color="#00e1ff" />
+                  <Stop color="#4400ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="40.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Header with Title -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="60.0" layoutX="30.0" layoutY="20.0" stroke="#ffffff20" strokeWidth="1.0" width="590.0">
+         <effect>
+            <DropShadow color="#000000" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Rectangle>
+
+      <Label layoutX="50.0" layoutY="30.0" text="Book Management" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="33.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </Label>
-      <TextField fx:id="Tbookid" layoutX="27.0" layoutY="84.0" prefHeight="25.0" prefWidth="471.0" promptText="search : bookid" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <JFXButton layoutX="509.0" layoutY="84.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #a29bfe; -fx-border-radius: 100;" text="Search" textFill="WHITE">
+
+      <!-- Book Logo -->
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="550.0" layoutY="30.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/booksettings .png" />
+         </image>
+         <effect>
+            <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </ImageView>
+
+      <!-- Search Bar Panel -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="60.0" layoutX="30.0" layoutY="90.0" stroke="#ffffff20" strokeWidth="1.0" width="590.0">
+         <effect>
+            <DropShadow color="#000000" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Rectangle>
+
+      <TextField fx:id="Tbookid" layoutX="50.0" layoutY="105.0" prefHeight="30.0" prefWidth="471.0" promptText="Search by Book ID" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d8adff; -fx-background-radius: 20; -fx-border-color: #a64dff; -fx-border-radius: 20; -fx-border-width: 1;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+
+      <JFXButton buttonType="RAISED" layoutX="530.0" layoutY="105.0" onAction="#btnSearchOnAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 20;" text="SEARCH" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </JFXButton>
-      <TextField fx:id="Tisbn" layoutX="28.0" layoutY="134.0" prefHeight="25.0" prefWidth="248.0" promptText="ISBN" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <TextField fx:id="Ttitel" layoutX="324.0" layoutY="135.0" prefHeight="25.0" prefWidth="248.0" promptText="titel" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <TextField fx:id="Tauthor" layoutX="28.0" layoutY="191.0" prefHeight="25.0" prefWidth="248.0" promptText="author" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <Label layoutX="30.0" layoutY="115.0" prefHeight="25.0" prefWidth="73.0" text="Book isbn" textFill="WHITE">
+
+      <!-- Book Details Form Panel -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="130.0" layoutX="30.0" layoutY="160.0" stroke="#ffffff20" strokeWidth="1.0" width="590.0">
+         <effect>
+            <DropShadow color="#000000" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Form Fields -->
+      <Label layoutX="50.0" layoutY="170.0" text="ISBN" textFill="#d8adff">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="326.0" layoutY="115.0" prefHeight="25.0" prefWidth="81.0" text="Titele" textFill="WHITE">
+      <TextField fx:id="Tisbn" layoutX="50.0" layoutY="190.0" prefHeight="30.0" prefWidth="248.0" promptText="Enter ISBN" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d8adff; -fx-background-radius: 8; -fx-border-color: #a64dff; -fx-border-radius: 8; -fx-border-width: 1;">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font size="13.0" />
+         </font>
+      </TextField>
+
+      <Label layoutX="350.0" layoutY="170.0" text="Title" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="169.0" prefHeight="25.0" prefWidth="95.0" text="Author" textFill="WHITE">
+      <TextField fx:id="Ttitel" layoutX="350.0" layoutY="190.0" prefHeight="30.0" prefWidth="248.0" promptText="Enter Title" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d8adff; -fx-background-radius: 8; -fx-border-color: #a64dff; -fx-border-radius: 8; -fx-border-width: 1;">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font size="13.0" />
+         </font>
+      </TextField>
+
+      <Label layoutX="50.0" layoutY="230.0" text="Author" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TableView fx:id="tblbook" layoutX="42.0" layoutY="310.0" opacity="0.84" prefHeight="202.0" prefWidth="575.0">
+      <TextField fx:id="Tauthor" layoutX="50.0" layoutY="250.0" prefHeight="30.0" prefWidth="248.0" promptText="Enter Author" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d8adff; -fx-background-radius: 8; -fx-border-color: #a64dff; -fx-border-radius: 8; -fx-border-width: 1;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+
+      <Label layoutX="350.0" layoutY="230.0" text="Availability" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Tavelability" layoutX="350.0" layoutY="250.0" prefHeight="30.0" prefWidth="248.0" promptText="Enter Availability" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d8adff; -fx-background-radius: 8; -fx-border-color: #a64dff; -fx-border-radius: 8; -fx-border-width: 1;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+
+      <!-- Buttons Panel -->
+      <HBox alignment="CENTER" layoutX="30.0" layoutY="300.0" prefHeight="50.0" prefWidth="590.0" spacing="20.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #0097e6, #00a8ff); -fx-background-radius: 20;" text="UPDATE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow color="#00a8ff" height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #e84118, #ff5252); -fx-background-radius: 20;" text="DELETE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow color="#ff5252" height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </JFXButton>
+         </children>
+      </HBox>
+
+      <!-- Table Panel with Glass Effect -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="180.0" layoutX="30.0" layoutY="360.0" stroke="#ffffff20" strokeWidth="1.0" width="590.0">
+         <effect>
+            <DropShadow color="#000000" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Modern Styled Table -->
+      <TableView fx:id="tblbook" layoutX="49.0" layoutY="375.0" prefHeight="150.0" prefWidth="550.0" style="-fx-background-color: #ffffff10; -fx-background-radius: 8; -fx-text-fill: white; -fx-border-color: #a64dff; -fx-border-radius: 8; -fx-border-width: 1;">
          <columns>
-            <TableColumn fx:id="colid" prefWidth="72.66665649414062" text="Book id" />
-            <TableColumn fx:id="colisbn" prefWidth="112.6666259765625" text="ISBN" />
-            <TableColumn fx:id="coltitel" prefWidth="149.33331298828125" text="Titel" />
-            <TableColumn fx:id="colavelibility" prefWidth="120.666748046875" text="Avelability" />
-            <TableColumn fx:id="colauthor" prefWidth="123.99993896484375" text="Author" />
+            <TableColumn fx:id="colid" prefWidth="80.0" text="Book ID" />
+            <TableColumn fx:id="colisbn" prefWidth="120.0" text="ISBN" />
+            <TableColumn fx:id="coltitel" prefWidth="160.0" text="Title" />
+            <TableColumn fx:id="colavelibility" prefWidth="100.0" text="Availability" />
+            <TableColumn fx:id="colauthor" prefWidth="90.0" text="Author" />
          </columns>
+         <effect>
+            <DropShadow color="#a64dff50" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </TableView>
-      <JFXButton layoutX="323.0" layoutY="254.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #34ace0;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="451.0" layoutY="254.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #ff5252;" text="Delete" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <TextField fx:id="Tavelability" layoutX="324.0" layoutY="191.0" prefHeight="25.0" prefWidth="248.0" promptText="avelability" style="-fx-border-color: #6c5ce7; -fx-border-radius: 5;" />
-      <Label layoutX="325.0" layoutY="169.0" prefHeight="25.0" prefWidth="81.0" text="avelability" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="10.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

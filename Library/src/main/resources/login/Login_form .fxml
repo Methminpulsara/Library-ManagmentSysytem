@@ -19,7 +19,7 @@
 
 <AnchorPane fx:id="mainancherpane" prefHeight="560.0" prefWidth="860.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.login.Login_form">
    <children>
-      <StackPane layoutX="25.0" layoutY="25.0" prefHeight="500.0" prefWidth="800.0">
+      <StackPane layoutX="25.0" layoutY="25.0" maxHeight="0.0" maxWidth="0.0" prefHeight="687.0" prefWidth="987.0">
          <effect>
             <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
          </effect>
@@ -38,7 +38,7 @@
             </Rectangle>
 
             <!-- Decorative elements -->
-            <AnchorPane prefHeight="500.0" prefWidth="800.0">
+            <AnchorPane prefHeight="550.0" prefWidth="850.0">
                <children>
                   <!-- Glowing orb decoration in top right -->
                   <Rectangle arcHeight="300.0" arcWidth="300.0" height="300.0" layoutX="743.0" layoutY="-74.0" opacity="0.15" width="300.0">

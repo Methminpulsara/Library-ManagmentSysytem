@@ -5,79 +5,212 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #474787;" stylesheets="@../css/txt.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.user.user_manegment.user_manegmentForm">
+<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.user.user_manegment.user_manegmentForm">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="550.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="650.0">
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="600.0" layoutY="-1.0" stroke="TRANSPARENT" width="701.0">
          <fill>
-            <LinearGradient endX="0.15457412647524094" endY="0.4889589815109686" startX="1.0">
+            <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
                <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.07058823853731155" green="0.5372549295425415" blue="0.6549019813537598" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.10588235408067703" green="0.0784313753247261" blue="0.3921568691730499" />
-                     </color>
-                  </Stop>
+                  <Stop color="#1a3c40" />
+                  <Stop color="#205060" offset="0.5" />
+                  <Stop color="#1b3c65" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
       </Rectangle>
-      <Label layoutX="23.0" layoutY="25.0" prefHeight="38.0" prefWidth="283.0" text="User Manegmnet " textFill="#7cfff6">
+
+      <!-- Decorative elements -->
+      <!-- Glowing orb decoration in top right -->
+      <Rectangle arcHeight="250.0" arcWidth="250.0" height="250.0" layoutX="450.0" layoutY="-100.0" opacity="0.15" width="250.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00eaff" />
+                  <Stop color="#0057ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Glowing orb decoration in bottom left -->
+      <Rectangle arcHeight="200.0" arcWidth="200.0" height="200.0" layoutX="-50.0" layoutY="400.0" opacity="0.1" width="200.0">
+         <fill>
+            <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+               <stops>
+                  <Stop color="#7cfff6" />
+                  <Stop color="#0044ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="40.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Header with Glass Effect -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="60.0" layoutX="20.0" layoutY="20.0" stroke="#ffffff20" strokeWidth="1.0" width="610.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Header Title with effects -->
+      <Label layoutX="40.0" layoutY="30.0" text="User Management" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="33.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
+         <effect>
+            <DropShadow color="#00c8ff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </Label>
-      <TextField fx:id="Tuserid" layoutX="19.0" layoutY="73.0" prefHeight="25.0" prefWidth="471.0" promptText="search : userid" style="-fx-border-color: black;" />
-      <JFXButton layoutX="501.0" layoutY="73.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #a29bfe;" text="Search" textFill="WHITE">
+
+      <!-- User Logo in header -->
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="560.0" layoutY="30.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/user.png" />
+         </image>
+         <effect>
+            <DropShadow color="#00c8ff" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </ImageView>
+
+      <!-- Search panel with glass effect -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="70.0" layoutX="20.0" layoutY="100.0" stroke="#ffffff20" strokeWidth="1.0" width="610.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Search field with modern styling -->
+      <TextField fx:id="Tuserid" layoutX="40.0" layoutY="120.0" prefHeight="30.0" prefWidth="460.0" promptText="Search by User ID" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d0d0d0; -fx-background-radius: 8; -fx-border-color: #ffffff40; -fx-border-radius: 8;" />
+
+      <!-- Search button with icon -->
+      <JFXButton buttonType="RAISED" layoutX="520.0" layoutY="120.0" onAction="#btnSearchOnAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to right, #0099ff, #00c8ff); -fx-background-radius: 8;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="#00c8ff80" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </JFXButton>
+
+      <!-- Form panel with glass effect -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="150.0" layoutX="20.0" layoutY="190.0" stroke="#ffffff20" strokeWidth="1.0" width="610.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Form field labels with improved styling -->
+      <Label layoutX="40.0" layoutY="205.0" prefHeight="20.0" prefWidth="120.0" text="Username" textFill="#ffffff">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <effect>
+            <DropShadow color="#00c8ff" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+
+      <Label layoutX="350.0" layoutY="205.0" prefHeight="20.0" prefWidth="120.0" text="Contact Number" textFill="#ffffff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow color="#00c8ff" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+
+      <Label layoutX="40.0" layoutY="265.0" prefHeight="20.0" prefWidth="120.0" text="Membership Date" textFill="#ffffff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow color="#00c8ff" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+
+      <!-- Form fields with modern styling -->
+      <TextField fx:id="Tusername" layoutX="40.0" layoutY="225.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter username" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d0d0d0; -fx-background-radius: 8; -fx-border-color: #ffffff40; -fx-border-radius: 8;" />
+
+      <TextField fx:id="Tcontactnumber" layoutX="350.0" layoutY="225.0" prefHeight="30.0" prefWidth="260.0" promptText="Enter contact number" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d0d0d0; -fx-background-radius: 8; -fx-border-color: #ffffff40; -fx-border-radius: 8;" />
+
+      <TextField fx:id="Tmembershipdate" layoutX="40.0" layoutY="285.0" prefHeight="30.0" prefWidth="280.0" promptText="YYYY-MM-DD" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #d0d0d0; -fx-background-radius: 8; -fx-border-color: #ffffff40; -fx-border-radius: 8;" />
+
+      <!-- Action buttons with improved styling -->
+      <JFXButton buttonType="RAISED" layoutX="350.0" layoutY="285.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to right, #34ace0, #00c8ff); -fx-background-radius: 8;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/update.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="#00c8ff80" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </JFXButton>
-      <TextField fx:id="Tusername" layoutX="23.0" layoutY="129.0" prefHeight="25.0" prefWidth="283.0" promptText="username" />
-      <TextField fx:id="Tcontactnumber" layoutX="335.0" layoutY="129.0" prefHeight="35.0" prefWidth="257.0" promptText="contact number" />
-      <TextField fx:id="Tmembershipdate" layoutX="20.0" layoutY="192.0" prefHeight="25.0" prefWidth="283.0" promptText="membership date " />
-      <Label layoutX="21.0" layoutY="106.0" prefHeight="25.0" prefWidth="73.0" text="user name " textFill="#f4f4f4">
+
+      <JFXButton buttonType="RAISED" layoutX="485.0" layoutY="285.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to right, #ff5252, #ff7675); -fx-background-radius: 8;" text="Delete" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
-      </Label>
-      <Label layoutX="366.0" layoutY="106.0" prefHeight="25.0" prefWidth="81.0" text="contact number" textFill="#efefef">
-         <font>
-            <Font name="System Bold" size="10.0" />
-         </font>
-      </Label>
-      <Label layoutX="22.0" layoutY="171.0" prefHeight="25.0" prefWidth="95.0" text="membership date" textFill="#dddddd">
-         <font>
-            <Font name="System Bold" size="10.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tbluser" layoutX="21.0" layoutY="288.0" prefHeight="243.0" prefWidth="607.0" stylesheets="@../css/style.css">
-        <columns>
-          <TableColumn fx:id="coluserid" prefWidth="102.6666259765625" text="User Id " />
-          <TableColumn fx:id="colusername" prefWidth="159.33334350585938" text="User Name " />
-            <TableColumn fx:id="colcontactnumber" prefWidth="166.6666259765625" text="Contact Number" />
-            <TableColumn fx:id="colmembershipdate" prefWidth="168.66665649414062" text="Membership Date " />
-        </columns>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="#ff525280" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </JFXButton>
+
+      <!-- Table panel with glass effect -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="180.0" layoutX="20.0" layoutY="360.0" stroke="#ffffff20" strokeWidth="1.0" width="610.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Table with modern styling -->
+      <TableView fx:id="tbluser" layoutX="40.0" layoutY="375.0" prefHeight="150.0" prefWidth="570.0" style="-fx-background-color: #ffffff10; -fx-background-radius: 8; -fx-border-color: #ffffff40; -fx-border-radius: 8; -fx-table-cell-border-color: #ffffff30;">
+         <columns>
+            <TableColumn fx:id="coluserid" prefWidth="100.0" text="User ID" />
+            <TableColumn fx:id="colusername" prefWidth="150.0" text="Username" />
+            <TableColumn fx:id="colcontactnumber" prefWidth="150.0" text="Contact Number" />
+            <TableColumn fx:id="colmembershipdate" prefWidth="150.0" text="Membership Date" />
+         </columns>
+         <effect>
+            <DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </TableView>
-      <JFXButton layoutX="358.0" layoutY="234.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #34ace0;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="490.0" layoutY="234.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #ff5252;" text="Delete" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
    </children>
 </AnchorPane>

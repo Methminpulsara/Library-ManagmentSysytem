@@ -1,48 +1,49 @@
 package edu.icet.ecom.controller.home;
+
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.jfoenix.controls.JFXButton;
 import edu.icet.ecom.util.AppModule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 
 public class HomeForm {
 
-    public AnchorPane setancherpane;
     @FXML
-    private JFXButton btn;
-
-    @FXML
-    private ImageView btnadduserONACTION;
+    private AnchorPane mainancherpane;
 
     @FXML
-    void btnbookONACTION(MouseEvent event) throws IOException {
+    private AnchorPane setancherpane;
 
-
+    @FXML
+    void btnFineOnActions(ActionEvent event) throws IOException {
         Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader loader =new FXMLLoader(this.getClass().getResource("/books/Book_form.fxml"));
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/fine/Fine_form.fxml"));
         loader.setControllerFactory(injector::getInstance);
         this.setancherpane.getChildren().clear();
         this.setancherpane.getChildren().add(loader.load());
+    }
 
-
-
+    @FXML
+    void btnbookONACTION(ActionEvent event) throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/books/Book_form.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
 
     }
 
     @FXML
-    void btnbroowONACTION(MouseEvent event) throws IOException {
+    void btnbroowONACTION(ActionEvent event) throws IOException {
         Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/borrowbook/Borrow_form.fxml"));
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/borrowbook/Borrow_form.fxml"));
         loader.setControllerFactory(injector::getInstance);
         this.setancherpane.getChildren().clear();
         this.setancherpane.getChildren().add(loader.load());
-
     }
 
     @FXML
@@ -51,38 +52,34 @@ public class HomeForm {
     }
 
     @FXML
-    void btnookmanegmentONACTION(MouseEvent event) throws IOException {
-
+    void btnookmanegmentONACTION(ActionEvent event) throws IOException {
         Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader lodder = new FXMLLoader(getClass().getResource("/books/BookManegment_form.fxml"));
-        lodder.setControllerFactory(injector::getInstance);
-        this.setancherpane.getChildren().clear();
-        this.setancherpane.getChildren().add(lodder.load());
-    }
-
-    @FXML
-    void btnreturnONACTION(MouseEvent event) throws IOException {
-
-        Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader loader=new FXMLLoader( this.getClass().getResource("/returnbook/returnbookform.fxml"));
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/books/BookManegment_form.fxml"));
         loader.setControllerFactory(injector::getInstance);
         this.setancherpane.getChildren().clear();
         this.setancherpane.getChildren().add(loader.load());
     }
 
     @FXML
-    void btnuserOnAction(MouseEvent event) throws IOException {
-
+    void btnreturnONACTION(ActionEvent event) throws IOException {
         Injector injector = Guice.createInjector(new AppModule());
-       FXMLLoader loader=new FXMLLoader( this.getClass().getResource("/user/User_form.fxml"));
-       loader.setControllerFactory(injector::getInstance);
-       this.setancherpane.getChildren().clear();
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/returnbook/returnbookform.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
         this.setancherpane.getChildren().add(loader.load());
     }
 
     @FXML
-    void btnusermanegmentOnAction(MouseEvent event) throws IOException {
+    void btnuserOnAction(ActionEvent event) throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/user/User_form.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
+    }
 
+    @FXML
+    void btnusermanegmentOnAction(ActionEvent event) throws IOException {
         Injector injector = Guice.createInjector(new AppModule());
         FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/user/User_manegmentForm.fxml"));
         loader.setControllerFactory(injector::getInstance);
@@ -90,12 +87,4 @@ public class HomeForm {
         this.setancherpane.getChildren().add(loader.load());
     }
 
-
-    public void btnFineOnActions(MouseEvent mouseEvent) throws IOException {
-        Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/fine/Fine_form.fxml"));
-        loader.setControllerFactory(injector::getInstance);
-        this.setancherpane.getChildren().clear();
-        this.setancherpane.getChildren().add(loader.load());
-    }
 }

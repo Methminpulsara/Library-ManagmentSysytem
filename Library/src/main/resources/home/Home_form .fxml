@@ -2,112 +2,264 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="850.0" stylesheets="@../css/Home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.HomeForm">
+<AnchorPane fx:id="mainancherpane" prefHeight="560.0" prefWidth="860.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.HomeForm">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#202040" height="550.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ImageView fitHeight="10.0" fitWidth="10.0" layoutX="27.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/icons8-settings-50%20(1).png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="13.0" layoutY="499.0" onAction="#btnexitOnAction" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: #046E78;" text="Exit" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/exit.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="13.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/booksettings%20.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/usersetting.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="49.0" layoutY="157.0" onMousePressed="#btnbookONACTION" prefHeight="20.0" prefWidth="80.0" text="Add Book" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="47.0" layoutY="119.0" onMousePressed="#btnuserOnAction" prefHeight="18.0" prefWidth="80.0" text="Add User" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="btnadduserONACTION" fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/user.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="48.0" layoutY="198.0" onMousePressed="#btnusermanegmentOnAction" prefHeight="18.0" prefWidth="112.0" text="User Manegemt" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="49.0" layoutY="246.0" onMousePressed="#btnookmanegmentONACTION" prefHeight="18.0" prefWidth="129.0" text="Books Manegemt" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="49.0" layoutY="289.0" onMousePressed="#btnbroowONACTION" prefHeight="18.0" prefWidth="122.0" text="Borrow Books" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="48.0" layoutY="336.0" onMousePressed="#btnreturnONACTION" prefHeight="18.0" prefWidth="96.0" text="Return Books" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/book.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="13.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/icons8-borrow-book-50.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="16.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/icons8-return-book-50.png" />
-         </image>
-      </ImageView>
-      <AnchorPane fx:id="setancherpane" layoutX="200.0" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #474787;" stylesheets="@../css/Home.css">
+      <AnchorPane prefHeight="560.0" prefWidth="860.0">
          <children>
-            <Label layoutX="43.0" layoutY="36.0" prefHeight="57.0" prefWidth="557.0" text="Welcome to the Library Management System" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="28.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
-      <Label layoutX="16.0" layoutY="370.0" onMousePressed="#btnFineOnActions" prefHeight="23.0" prefWidth="139.0" text=" Fine calculator" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="15.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <!-- Background with glass morphism effect -->
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="599.0" layoutX="25.0" layoutY="29.0" stroke="TRANSPARENT" width="995.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
+                     <stops>
+                        <Stop color="#1a103c" />
+                        <Stop color="#202040" offset="0.5" />
+                        <Stop color="#2e1b65" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <effect>
+                  <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Decorative elements -->
+            <!-- Glowing orb decoration in top right -->
+            <Rectangle arcHeight="300.0" arcWidth="300.0" height="300.0" layoutX="740.0" layoutY="-100.0" opacity="0.15" width="300.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff00ea" />
+                        <Stop color="#9000ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <effect>
+                  <GaussianBlur radius="50.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Glowing orb decoration in bottom left -->
+            <Rectangle arcHeight="250.0" arcWidth="250.0" height="250.0" layoutX="-50.0" layoutY="400.0" opacity="0.1" width="250.0">
+               <fill>
+                  <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+                     <stops>
+                        <Stop color="#00e1ff" />
+                        <Stop color="#4400ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <effect>
+                  <GaussianBlur radius="40.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Left sidebar with glass morphism -->
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="544.0" layoutX="50.0" layoutY="50.0" stroke="#ffffff20" strokeWidth="1.0" width="205.0">
+               <effect>
+                  <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Library Logo on top of sidebar -->
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="110.0" layoutY="65.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/pay.png" />
+                  <Image url="@../images/book.png" />
                </image>
+               <effect>
+                  <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+               </effect>
             </ImageView>
-         </graphic>
-      </Label>
-      <Label text="Label" />
+
+            <Label layoutX="73.0" layoutY="146.0" text="Library System" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </Label>
+
+            <!-- Menu Items in VBox -->
+            <VBox layoutX="55.0" layoutY="190.0" prefHeight="290.0" prefWidth="190.0" spacing="14.0">
+               <children>
+                  <!-- Add User Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnuserOnAction" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Add User" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- Add Book Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnbookONACTION" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Add Book" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- User Management Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnusermanegmentOnAction" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="User Management" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/usersetting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- Book Management Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnookmanegmentONACTION" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Book Management" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/booksettings .png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- Borrow Books Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnbroowONACTION" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Borrow Books" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-borrow-book-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- Return Books Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnreturnONACTION" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Return Books" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-return-book-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+
+                  <!-- Fine Calculator Button -->
+                  <JFXButton alignment="BASELINE_LEFT" onAction="#btnFineOnActions" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Fine Calculator" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/pay.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+
+            <!-- Exit Button -->
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="536.0" onAction="#btnexitOnAction" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 25;" text="EXIT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </JFXButton>
+
+            <!-- Main Content Area with glass morphism -->
+            <AnchorPane fx:id="setancherpane" layoutX="275.0" layoutY="50.0" prefHeight="460.0" prefWidth="560.0">
+               <children>
+                  <!-- Glass morphism panel -->
+                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="539.0" stroke="#ffffff20" strokeWidth="1.0" width="700.0">
+                     <effect>
+                        <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+                     </effect>
+                  </Rectangle>
+
+                  <!-- Welcome Text -->
+                  <Label layoutX="48.0" layoutY="40.0" text="Welcome to the" textFill="#d8adff">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="48.0" layoutY="70.0" text="Library Management System" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+                     </effect>
+                  </Label>
+
+                  <!-- Quick Stats at Bottom -->
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ffffff15" height="80.0" layoutX="48.0" layoutY="360.0" stroke="#ffffff20" strokeWidth="1.0" width="464.0" />
+                  <Label layoutX="70.0" layoutY="370.0" text="Books Available: 247" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="305.0" layoutY="370.0" text="Active Members: 128" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="400.0" text="Books Borrowed: 53" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="305.0" layoutY="400.0" text="Overdue Books: 12" textFill="#ff6b6b">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

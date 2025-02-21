@@ -2,80 +2,209 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="650.0" stylesheets="@../css/Borrow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.borrow.Borrow_form">
-
+<AnchorPane prefHeight="550.0" prefWidth="660.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.borrow.Borrow_form">
    <children>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#7a81a8" height="311.0" layoutX="22.0" layoutY="134.0" strokeType="INSIDE" width="252.0">
-         <stroke>
-            <LinearGradient endX="1.0" endY="1.0" startX="0.2776024890622882" startY="0.760252371947472">
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="601.0" stroke="TRANSPARENT" width="751.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
                <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.1979098916053772" green="0.25268030166625977" blue="0.7456140518188477" />
-                     </color>
-                  </Stop>
+                  <Stop color="#1a103c" />
+                  <Stop color="#202040" offset="0.5" />
+                  <Stop color="#2e1b65" offset="1.0" />
                </stops>
             </LinearGradient>
-         </stroke></Rectangle>
+         </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
+      </Rectangle>
 
-      <!-- User & Book Selection -->
-      <JFXComboBox fx:id="user_cmb" layoutX="73.0" layoutY="157.0" onAction="#user_cmb_OnAction" prefHeight="20.0" prefWidth="184.0" promptText="Select User ID" />
-      <JFXComboBox fx:id="book_cmb" layoutX="74.0" layoutY="202.0" onAction="#book_cmb_OnAction" prefHeight="35.0" prefWidth="184.0" promptText="Select Book ID" />
+      <!-- Decorative elements -->
+      <!-- Glowing orb decoration in top right -->
+      <Rectangle arcHeight="250.0" arcWidth="250.0" height="250.0" layoutX="500.0" layoutY="-100.0" opacity="0.15" width="250.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff00ea" />
+                  <Stop color="#9000ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
 
-      <!-- Date Picker -->
-      <DatePicker fx:id="datepiker" layoutX="74.0" layoutY="253.0" prefHeight="35.0" prefWidth="184.0" />
+      <!-- Glowing orb decoration in bottom left -->
+      <Rectangle arcHeight="200.0" arcWidth="200.0" height="200.0" layoutX="-50.0" layoutY="400.0" opacity="0.1" width="200.0">
+         <fill>
+            <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+               <stops>
+                  <Stop color="#00e1ff" />
+                  <Stop color="#4400ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="40.0" />
+         </effect>
+      </Rectangle>
 
-      <!-- Add Button -->
-      <Button layoutX="77.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnaddOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #ff7675; -fx-text-fill: white; -fx-font-size: 14px;" text="ADD" />
-
-      <!-- Order ID Label -->
-      <Label layoutX="22.0" layoutY="84.0" prefHeight="20.0" prefWidth="81.0" text="Order - &gt;" textFill="WHITE">
+      <!-- Header -->
+      <Label layoutX="40.0" layoutY="35.0" text="Borrow Books" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="15.0" />
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </Label>
+
+      <Label layoutX="40.0" layoutY="70.0" text="Add new borrowing records" textFill="#d8adff">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Torderid" layoutX="124.0" layoutY="85.0" prefHeight="18.0" prefWidth="47.0" textFill="WHITE">
+
+      <!-- Order ID Display -->
+      <Label layoutX="520.0" layoutY="40.0" text="Order ID:" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="14.0" />
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="Torderid" layoutX="590.0" layoutY="40.0" prefHeight="20.0" prefWidth="50.0" text="B001" textFill="#a64dff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow color="#a64dff" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+
+      <!-- Date Display -->
+      <Label fx:id="lbldate" layoutX="520.0" layoutY="70.0" prefHeight="20.0" prefWidth="120.0" text="2025-02-21" textFill="WHITE">
+         <font>
+            <Font name="System" size="14.0" />
+         </font>
+      </Label>
+
+      <!-- Left Panel - Input Fields with glass morphism -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="350.0" layoutX="40.0" layoutY="110.0" stroke="#ffffff20" strokeWidth="1.0" width="240.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <Label layoutX="60.0" layoutY="125.0" text="Borrowing Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+
+      <!-- Book Icon -->
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="225.0" layoutY="120.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-borrow-book-50.png" />
+         </image>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </ImageView>
+
+      <!-- Input Fields -->
+      <Label layoutX="60.0" layoutY="165.0" text="Select User" textFill="#d8adff">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="user_cmb" layoutX="60.0" layoutY="185.0" onAction="#user_cmb_OnAction" prefHeight="35.0" prefWidth="200.0" promptText="Select User ID" style="-fx-prompt-text-fill: #a0a0a0; -fx-text-fill: white;" />
+
+      <Label layoutX="60.0" layoutY="235.0" text="Select Book" textFill="#d8adff">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="book_cmb" layoutX="60.0" layoutY="255.0" onAction="#book_cmb_OnAction" prefHeight="35.0" prefWidth="200.0" promptText="Select Book ID" style="-fx-prompt-text-fill: #a0a0a0; -fx-text-fill: white;" />
+
+      <Label layoutX="60.0" layoutY="305.0" text="Borrow Date" textFill="#d8adff">
+         <font>
+            <Font name="System" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datepiker" layoutX="60.0" layoutY="325.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ffffff15; -fx-text-fill: white;" />
+
+      <!-- Add Button -->
+      <JFXButton layoutX="60.0" layoutY="390.0" onAction="#btnaddOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 20;" text="Add to List" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-add-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+
+      <!-- Right Panel - Table with glass morphism -->
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="351.0" layoutX="300.0" layoutY="110.0" stroke="#ffffff20" strokeWidth="1.0" width="423.0">
+         <effect>
+            <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Rectangle>
+
+      <Label layoutX="320.0" layoutY="125.0" text="Borrowing List" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
 
       <!-- Borrow Details Table -->
-      <TableView fx:id="tblBorrwDetails" layoutX="294.0" layoutY="133.0" prefHeight="311.0" prefWidth="449.0">
+      <TableView fx:id="tblBorrwDetails" layoutX="320.0" layoutY="160.0" prefHeight="287.0" prefWidth="388.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff20; -fx-text-fill: white;">
          <columns>
-            <TableColumn fx:id="colBookID" prefWidth="125.0" text="Book ID" />
-            <TableColumn fx:id="colBorrowdate" prefWidth="151.0" text="Borrow Date" />
-            <TableColumn fx:id="colreturndate" prefWidth="166.0" text="Return Date" />
+            <TableColumn fx:id="colBookID" prefWidth="90.0" text="Book ID" />
+            <TableColumn fx:id="colBorrowdate" prefWidth="145.99996948242188" text="Borrow Date" />
+            <TableColumn fx:id="colreturndate" prefWidth="147.33331298828125" text="Return Date" />
          </columns>
+         <effect>
+            <DropShadow color="#00000040" height="10.0" radius="4.5" width="10.0" />
+         </effect>
       </TableView>
 
       <!-- Place Order Button -->
-      <JFXButton fx:id="btnplace" layoutX="309.0" layoutY="459.0" onAction="#btnPlaceOnAction" prefHeight="31.0" prefWidth="423.0" style="-fx-background-color: #686de0; -fx-text-fill: WHITE; -fx-font-size: 14px;" text="Place Order">
-      </JFXButton>
-
-      <!-- Dynamic Date Label -->
-      <Label fx:id="lbldate" layoutX="605.0" layoutY="22.0" prefHeight="41.0" prefWidth="184.0">
+      <JFXButton fx:id="btnplace" layoutX="40.0" layoutY="480.0" onAction="#btnPlaceOnAction" prefHeight="50.0" prefWidth="580.0" style="-fx-background-color: linear-gradient(to right, #4776E6, #8E54E9); -fx-background-radius: 25;" text="Confirm Borrowing" textFill="WHITE">
          <font>
-            <Font name="Berlin Sans FB Bold" size="22.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
-      </Label>
-
+         <effect>
+            <DropShadow color="#8E54E9" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-checkmark-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
