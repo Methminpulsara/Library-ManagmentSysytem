@@ -1,14 +1,19 @@
 package edu.icet.ecom.controller.user;
 
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.ecom.model.User;
 import edu.icet.ecom.service.ServiceFactory;
 import edu.icet.ecom.service.custom.User_service;
+import edu.icet.ecom.util.AppModule;
 import edu.icet.ecom.util.Service_type;
+import edu.icet.ecom.util.SetAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -45,41 +50,14 @@ public class User_form {
                 Tmembershipdat.getText(),
                 0.0
         ))){
-            new Alert(Alert.AlertType.INFORMATION,"Added ! ").show();
-        }
+            SetAlert.getInstance().setAlert("User Is Added To Library ! ");
+            return;
+        }SetAlert.getInstance().setAlert("Can't Add user Check Date and User ID ");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @FXML
-    void btnusermangmentOnAction(ActionEvent event) throws IOException {
-
-//        URL resource = this.getClass().getResource("/user/User_manegmentForm.fxml");
-//        assert resource!=null;
-//        Parent load = FXMLLoader.load(resource);
-//        this.mainancherpane.getChildren().clear();
-//        this.mainancherpane.getChildren().add(load);
-
-    }
 
     public void btnbackOnAction(ActionEvent actionEvent) throws IOException {
-//        URL resource = this.getClass().getResource("/home/Home_form .fxml");
-//        assert resource!=null;
-//        Parent load = FXMLLoader.load(resource);
-//        this.mainancherpane.getChildren().clear();
-//        this.mainancherpane.getChildren().add(load);
+
     }
 
     public void imgbackOnAction(MouseEvent mouseEvent)  {

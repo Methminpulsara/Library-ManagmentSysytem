@@ -7,6 +7,7 @@ import edu.icet.ecom.service.ServiceFactory;
 import edu.icet.ecom.service.custom.User_service;
 import edu.icet.ecom.service.custom.impl.UserService_impl;
 import edu.icet.ecom.util.Service_type;
+import edu.icet.ecom.util.SetAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,42 +63,43 @@ public class user_manegmentForm implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        if(service.deleteUser(Tuserid.getText())){
-            new Alert(Alert.AlertType.INFORMATION,"User Deleted ! ").show();
+        if (service.deleteUser(Tuserid.getText())) {
+            SetAlert.getInstance().setAlert("User Deleted !");
             return;
         }
-        new Alert(Alert.AlertType.INFORMATION,"User Can't delete  ! ").show();
-
+        SetAlert.getInstance().setAlert("User Can't delete  ! ");
     }
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
 
         User_entity user = service.serchUser(Tuserid.getText());
-        if (user!=null){
+        if (user != null) {
             Tusername.setText(user.getName());
             Tcontactnumber.setText(user.getContactinformation());
             Tmembershipdate.setText(user.getMembershipdate());
             return;
         }
-        new Alert(Alert.AlertType.INFORMATION,"User can't find ").show();
+        SetAlert.getInstance().setAlert("User can't find ");
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-       if (service.updateUesr(new User(Tuserid.getText(),Tusername.getText(),Tcontactnumber.getText(),Tmembershipdate.getText(),0.0))){
-           new Alert(Alert.AlertType.INFORMATION,"User is Updated ! ").show();
-           return;
-       } new Alert(Alert.AlertType.INFORMATION,"User can't Update ! ").show();
+        if (service.updateUesr(new User(Tuserid.getText(), Tusername.getText(), Tcontactnumber.getText(), Tmembershipdate.getText(), 0.0))) {
+        SetAlert.getInstance().setAlert("User is Updated ! ");
+            return;
+        }
+        SetAlert.getInstance().setAlert("User can't Update ! ");
 
 
     }
 
 
-    ObservableList<User>userObservableList = FXCollections.observableArrayList();
-    private void loadTable (){
+    ObservableList<User> userObservableList = FXCollections.observableArrayList();
 
-        List <User> userList = service.getAll();
+    private void loadTable() {
+
+        List<User> userList = service.getAll();
         userList.forEach(user -> {
             userObservableList.add(user);
         });
@@ -112,10 +114,6 @@ public class user_manegmentForm implements Initializable {
         colmembershipdate.setCellValueFactory(new PropertyValueFactory<>("membershipdate"));
         loadTable();
     }
-
-
-
-
 
 
     public void imgbackOnAction(MouseEvent mouseEvent) {

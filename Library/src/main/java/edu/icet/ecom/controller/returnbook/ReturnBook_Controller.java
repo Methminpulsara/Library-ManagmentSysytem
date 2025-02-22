@@ -7,25 +7,33 @@ import edu.icet.ecom.model.Return_Book;
 import edu.icet.ecom.service.custom.Book_service;
 import edu.icet.ecom.service.custom.Borrow_service;
 import edu.icet.ecom.service.custom.ReturnBook_Service;
+import edu.icet.ecom.util.SetAlert;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReturnBook_Controller implements Initializable {
 
     public Label lblRecordID;
+    public TableView tblretundetails;
+    public TableColumn colreturnId;
+    public TableColumn coluserid;
+    public TableColumn colbookiD;
+    public TableColumn colreturndate;
+    public TableColumn colfine;
+    public JFXComboBox returnId;
     @FXML
     private TextField Tamount;
 
@@ -51,39 +59,47 @@ public class ReturnBook_Controller implements Initializable {
     private Label lbluser;
 
     @FXML
-    private JFXComboBox <Integer> record_cmb;
+    private JFXComboBox<Integer> record_cmb;
 
     private int fine;
-    private  String status ;
+    private String status;
 
     @Inject
-    private Borrow_service borrowService ;
+    private Borrow_service borrowService;
 
     @Inject
     private ReturnBook_Service returnBookService;
 
 
-     public void serRecordIDS(){
+    private void loadTable() {
+
+        colreturnId.setCellValueFactory(new PropertyValueFactory<>("returnID"));
+        colfine.setCellValueFactory(new PropertyValueFactory<>("fine"));
+        colbookiD.setCellValueFactory(new PropertyValueFactory<>("bookID"));
+        colreturndate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        coluserid.setCellValueFactory(new PropertyValueFactory<>("userID"));
+
+        List<Return_Book> all = returnBookService.getAll();
+        if (all != null) {
+            ObservableList list = FXCollections.observableArrayList();
+            all.forEach(returnBook -> {
+                list.add(returnBook);
+            });
+            tblretundetails.setItems(list);
+        }
+    }
+
+    public void serRecordIDS() {
         ObservableList<Integer> recordsIds = borrowService.getRecordsIds();
         record_cmb.setItems(recordsIds);
-     }
-
-
-
-
-
-    @FXML
-    void btnaddOnAction(ActionEvent event) {
-
-
-
     }
+
 
     @FXML
     void record_cmb_OnAction(ActionEvent event) {
 
         BorrowEntity entity = borrowService.serchRecord(record_cmb.getSelectionModel().getSelectedItem().toString());
-        if(entity!= null){
+        if (entity != null) {
             lblbookid.setText(entity.getBookID());
             lbluser.setText(entity.getUserID());
             lblborrowdate.setText(entity.getDate());
@@ -91,17 +107,19 @@ public class ReturnBook_Controller implements Initializable {
         }
     }
 
-    public void serReturnID(){
-//        int id = returnBookService.lastReturnID();
-//      lblRecordID.setText(String.valueOf(id));
+    public void serReturnID() {
+        int id = returnBookService.lastReturnID() + 1;
+        lblRecordID.setText(String.valueOf(id));
     }
-
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         serRecordIDS();
         serReturnID();
+        loadTable();
+
+
     }
 
 
@@ -118,10 +136,10 @@ public class ReturnBook_Controller implements Initializable {
         long daysLate = ChronoUnit.DAYS.between(returnDate, actualReturnDate);
 
         fine = (daysLate > 0) ? (int) daysLate * 10 : 0;
-        if (actualReturnDate.isAfter(returnDate)){
+        if (actualReturnDate.isAfter(returnDate)) {
             status = "returned late";
-        }else{
-            status = "returned" ;
+        } else {
+            status = "returned";
         }
 
 
@@ -136,16 +154,22 @@ public class ReturnBook_Controller implements Initializable {
                     actualdate.getValue().toString(),
                     (double) fine,
                     status
-            ))){
-                new Alert(Alert.AlertType.INFORMATION,"Your Book is Returend ! ").show();
-                //serRecordIDS();
+            ))) {
+                SetAlert.getInstance().setAlert("Book is Returend ! ");
+                serReturnID();
+                serRecordIDS();
                 return;
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
         }
-        new Alert(Alert.AlertType.ERROR,"Can't Return your book !").show();
+       SetAlert.getInstance().setAlert("Can't Return book !");
 
 
     }
+
+    public void btnloadtableOnAction(ActionEvent actionEvent) {
+        loadTable();
+    }
+
+
 }

@@ -1,8 +1,9 @@
 package edu.icet.ecom.controller.home;
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import edu.icet.ecom.controller.book.Book_form;
 import edu.icet.ecom.util.AppModule;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ public class HomeForm {
 
     @FXML
     private AnchorPane setancherpane;
+
 
     @FXML
     void btnFineOnActions(ActionEvent event) throws IOException {
@@ -48,6 +50,7 @@ public class HomeForm {
 
     @FXML
     void btnexitOnAction(ActionEvent event) {
+        Platform.exit();
 
     }
 
@@ -67,6 +70,7 @@ public class HomeForm {
         loader.setControllerFactory(injector::getInstance);
         this.setancherpane.getChildren().clear();
         this.setancherpane.getChildren().add(loader.load());
+
     }
 
     @FXML
@@ -87,4 +91,33 @@ public class HomeForm {
         this.setancherpane.getChildren().add(loader.load());
     }
 
+
+
+    @FXML
+     void btnbackOnActio(ActionEvent event) throws IOException {
+
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/home/Home_form .fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
+
+    }
+
+
+    public void btnreportOnAcion(ActionEvent actionEvent) throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/report_Form/userReport.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
+    }
+
+    public void  hohome() throws IOException {
+        Injector injector = Guice.createInjector(new AppModule());
+        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/home/ButtonHome_fom.fxml"));
+        loader.setControllerFactory(injector::getInstance);
+        this.setancherpane.getChildren().clear();
+        this.setancherpane.getChildren().add(loader.load());
+    }
 }

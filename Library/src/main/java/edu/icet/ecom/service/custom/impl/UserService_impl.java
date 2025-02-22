@@ -79,4 +79,14 @@ public class UserService_impl implements User_service {
     public boolean updatePayment(String userID, Double fine) {
         return dao.updatePayment(userID,fine);
     }
+
+    @Override
+    public ObservableList<String> getUsersHaveToPay() {
+        List<String> userIds = dao.getUserIdsHavetoPay();
+        ObservableList<String> observableArrayList = FXCollections.observableArrayList();
+        userIds.forEach(s -> {
+            observableArrayList.add(String.valueOf(userIds));
+        });
+        return observableArrayList;
+    }
 }

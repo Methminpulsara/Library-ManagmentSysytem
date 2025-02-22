@@ -10,10 +10,13 @@ import edu.icet.ecom.repository.custom.FineDao;
 import edu.icet.ecom.service.custom.Fine_service;
 import edu.icet.ecom.service.custom.ReturnBook_Service;
 import edu.icet.ecom.service.custom.User_service;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.modelmapper.ModelMapper;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class FineService_Impl implements Fine_service {
 
@@ -47,7 +50,7 @@ public class FineService_Impl implements Fine_service {
             if (isSave){
                 boolean isPaymentAdded =userService.updatePayment(fineDetail.getUserID(),fineDetail.getFine());
                 if (isPaymentAdded){
-                    boolean isUpdate = returnBookService.updateStatus(fineDetail.getReturnID(),"returned");
+                    boolean isUpdate = returnBookService.updateStatus(fineDetail.getUserID(),"returned");
                     if(isUpdate){
                         connection.commit();
                         return true;
@@ -59,7 +62,15 @@ public class FineService_Impl implements Fine_service {
         }finally {
             connection.setAutoCommit(true);
         }
+    }
 
-
+    @Override
+    public ObservableList<FineDetail> getAll() {
+        ObservableList<FineDetail> observableArrayList = FXCollections.observableArrayList();
+        List<FineDetail_Entity> all = fineDao.getAll();
+        all.forEach(entity -> {
+            observableArrayList.add(mapper.map(entity,FineDetail.class));
+        });
+        return observableArrayList;
     }
 }

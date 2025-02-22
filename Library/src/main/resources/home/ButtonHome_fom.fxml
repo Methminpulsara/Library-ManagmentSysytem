@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="581.0" prefWidth="742.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.Home_ButtonFormController">
+    <children>
+        <!-- Background with glass morphism effect -->
+        <Rectangle arcHeight="20.0" arcWidth="20.0" height="581.0" stroke="TRANSPARENT" width="753.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#1a103c" />
+                        <Stop color="#2e1b65" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <effect>
+                <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+            </effect>
+        </Rectangle>
+
+        <!-- Decorative elements -->
+        <!-- Glowing orb decoration in top right -->
+        <Rectangle arcHeight="300.0" arcWidth="300.0" height="254.0" layoutX="539.0" layoutY="-98.0" opacity="0.15" width="200.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#ff00ea" />
+                        <Stop color="#9000ff" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <effect>
+                <GaussianBlur radius="50.0" />
+            </effect>
+        </Rectangle>
+
+        <!-- Glowing orb decoration in bottom left -->
+        <Rectangle arcHeight="250.0" arcWidth="250.0" height="180.0" layoutX="1.0" layoutY="400.0" opacity="0.1" width="149.0">
+            <fill>
+                <LinearGradient endX="0.0" endY="1.0" startX="1.0" startY="0.0">
+                    <stops>
+                        <Stop color="#00e1ff" />
+                        <Stop color="#4400ff" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <effect>
+                <GaussianBlur radius="40.0" />
+            </effect>
+        </Rectangle>
+
+        <!-- Main Content Area -->
+        <AnchorPane layoutX="40.0" layoutY="42.0" prefHeight="469.0" prefWidth="651.0">
+            <children>
+                <!-- Glass morphism panel -->
+                <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="545.0" layoutX="-8.0" layoutY="-41.0" stroke="#ffffff20" strokeWidth="1.0" width="720.0">
+                    <effect>
+                        <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+                    </effect>
+                </Rectangle>
+
+                <!-- Welcome Text -->
+                <Label layoutX="40.0" layoutY="40.0" text="Welcome to the" textFill="#d8adff">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                    </effect>
+                </Label>
+
+                <Label layoutX="40.0" layoutY="68.0" text="Library Management System" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+                    </effect>
+                </Label>
+
+                <!-- Stats Container -->
+                <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff15" height="82.0" layoutX="40.0" layoutY="354.0" stroke="#ffffff20" strokeWidth="1.0" width="470.0" />
+
+                <!-- Stats Labels -->
+                <Label layoutX="60.0" layoutY="368.0" text="Books Available: 247" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="300.0" layoutY="368.0" text="Active Members: 128" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="60.0" layoutY="405.0" text="Books Borrowed: 53" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="300.0" layoutY="407.0" text="Overdue Books: 12" textFill="#ff6b6b">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

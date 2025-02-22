@@ -15,6 +15,7 @@ import org.modelmapper.ModelMapper;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReturnBook_ServiceImpl implements ReturnBook_Service {
@@ -92,7 +93,28 @@ public class ReturnBook_ServiceImpl implements ReturnBook_Service {
     }
 
     @Override
-    public boolean updateStatus(int returniD, String status) {
-        return returnBookDao.udapetStatus(returniD,status);
+    public boolean updateStatus(String userId, String status) {
+        return returnBookDao.udapetStatus(userId,status);
+    }
+
+    @Override
+    public List<Return_Book> getAll() {
+        List<Return_Book> returnBooks = new ArrayList<>();
+        List<Return_Book_Entity> all = returnBookDao.getAll();
+        all.forEach(returnBook -> {
+            returnBooks.add(mapper.map(returnBook,Return_Book.class));
+        });
+        return returnBooks;
+    }
+
+    @Override
+    public ObservableList<String> getUserIDs() {
+        ObservableList<String> observableArrayList = FXCollections.observableArrayList();
+        List<String> userid = returnBookDao.getUserid();
+        userid.forEach(s -> {
+            observableArrayList.add(s);
+        });
+        return  observableArrayList;
+
     }
 }

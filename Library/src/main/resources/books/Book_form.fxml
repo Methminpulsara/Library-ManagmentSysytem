@@ -16,7 +16,7 @@
 <AnchorPane fx:id="mainancherpane" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.book.Book_form">
    <children>
       <!-- Background with glass morphism effect -->
-      <Rectangle arcHeight="20.0" arcWidth="20.0" height="552.0" layoutY="-1.0" stroke="TRANSPARENT" width="700.0">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="600.0" layoutY="-1.0" stroke="TRANSPARENT" width="701.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
                <stops>
@@ -157,7 +157,7 @@
       </Label>
 
       <!-- Navigation button to return to home -->
-      <JFXButton buttonType="RAISED" layoutX="370.0" layoutY="440.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff20; -fx-background-radius: 20;" text="BACK TO HOME" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="370.0" layoutY="440.0" onAction="#btnbackOnAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff20; -fx-background-radius: 20;" text="BACK TO HOME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

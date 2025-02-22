@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="654.0" prefWidth="910.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller">
+<AnchorPane prefHeight="654.0" prefWidth="910.0" style="-fx-background-color: #121212;" stylesheets="@../css/text.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller">
    <children>
       <!-- Background with glass morphism effect -->
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="653.0" layoutX="1.0" layoutY="1.0" stroke="TRANSPARENT" width="950.0">
@@ -203,14 +203,13 @@
       </Label>
 
       <!-- Return History Table -->
-      <TableView layoutX="390.0" layoutY="170.0" prefHeight="320.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff20; -fx-text-fill: white;">
+      <TableView fx:id="tblretundetails" layoutX="390.0" layoutY="170.0" prefHeight="320.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff20; -fx-text-fill: white;">
          <columns>
-            <TableColumn prefWidth="60.0" text="Return ID" />
-            <TableColumn prefWidth="60.0" text="User ID" />
-            <TableColumn prefWidth="60.0" text="Book ID" />
-            <TableColumn prefWidth="85.0" text="Borrow Date" />
-            <TableColumn prefWidth="85.0" text="Return Date" />
-            <TableColumn prefWidth="50.0" text="Fine" />
+            <TableColumn fx:id="colreturnId" prefWidth="60.0" text="Return ID" />
+            <TableColumn fx:id="coluserid" prefWidth="72.0" text="User ID" />
+            <TableColumn fx:id="colbookiD" prefWidth="71.33331298828125" text="Book ID" />
+            <TableColumn fx:id="colreturndate" prefWidth="111.33331298828125" text="Return Date" />
+            <TableColumn fx:id="colfine" prefWidth="84.666748046875" text="Fine" />
          </columns>
          <effect>
             <DropShadow color="#00000040" height="10.0" radius="4.5" width="10.0" />
@@ -229,6 +228,14 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="#ff9966" height="15.0" radius="7.0" width="15.0" />
+         </effect>
+      </JFXButton>
+      <JFXButton layoutX="531.0" layoutY="125.0" onAction="#btnloadtableOnAction" prefHeight="35.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to right, #ff5e62, #ff9966); -fx-background-radius: 25;" text="Load table" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
          <effect>
             <DropShadow color="#ff9966" height="15.0" radius="7.0" width="15.0" />
          </effect>

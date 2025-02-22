@@ -1,16 +1,10 @@
-package edu.icet.ecom.controller.login;
+package edu.icet.ecom.service.custom.impl;
 
 import edu.icet.ecom.db_connection.Db_Connection;
 import edu.icet.ecom.model.Admin;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.stage.Stage;
+import edu.icet.ecom.util.CrudUtil;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +17,7 @@ public class Login_formController {
         return instance == null ? instance = new Login_formController():instance;
     }
 
-    public boolean login (Admin admin) throws SQLException, IOException {
+    public boolean login(Admin admin) throws SQLException, IOException {
         PreparedStatement stm = Db_Connection.getInstance().getConnection().prepareStatement("Select * from admin where email = ? ");
         stm.setObject(1,admin.getEmail());
         ResultSet res = stm.executeQuery();
@@ -34,5 +28,14 @@ public class Login_formController {
         }
         return false;
     }
+
+    public boolean save (Admin admin) throws SQLException {
+
+        if (CrudUtil.execute("Insert INTO admin Values (?,?)",admin.getEmail(),admin.getPassword())){
+            return  true;
+        }
+        return false;
+    }
+
 
 }

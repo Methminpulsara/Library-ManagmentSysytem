@@ -2,51 +2,160 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.returnbook.ReturnBook_Controller">
+<AnchorPane prefHeight="540.0" prefWidth="792.0" stylesheets="@../css/text.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.fine.Fine_Form_controller">
    <children>
-      <!-- Background Image -->
-      <ImageView fitHeight="400.0" fitWidth="600.0" preserveRatio="false">
-         <image>
-            <Image url="@../images/library_background.jpg" />
-         </image>
-      </ImageView>
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="540.0" width="800.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#1a103c" />
+                  <Stop color="#202040" offset="0.5" />
+                  <Stop color="#2e1b65" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
+      </Rectangle>
 
-      <!-- Form Container -->
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15;">
+      <!-- Decorative glow elements -->
+      <Rectangle arcHeight="300.0" arcWidth="300.0" height="300.0" layoutX="500.0" layoutY="-100.0" opacity="0.15" width="300.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff00ea" />
+                  <Stop color="#9000ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Content Container with glass effect -->
+      <AnchorPane layoutX="50.0" layoutY="30.0" prefHeight="480.0" prefWidth="642.0">
          <children>
-            <JFXComboBox fx:id="record_cmb" layoutX="50.0" layoutY="50.0" onAction="#record_cmb_OnAction" prefHeight="30.0" prefWidth="200.0" promptText="Record ID" styleClass="modern-combo" />
-            <Label layoutX="50.0" layoutY="100.0" prefHeight="27.0" prefWidth="105.0" text="Return ID -&gt;" styleClass="modern-label">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="437.0" layoutX="335.0" layoutY="32.0" stroke="#ffffff20" strokeWidth="1.0" width="395.0">
+               <effect>
+                  <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Rectangle>
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="435.0" layoutX="15.0" layoutY="30.0" stroke="#ffffff20" strokeWidth="1.0" width="300.0">
+               <effect>
+                  <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Rectangle>
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="542.0" layoutX="-49.0" layoutY="-31.0" stroke="#ffffff20" strokeWidth="1.0" width="800.0">
+               <effect>
+                  <DropShadow color="#00000080" height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Title -->
+            <Label layoutX="40.0" layoutY="30.0" text="Fine Calculator" textFill="WHITE">
                <font>
-                  <Font name="Bauhaus 93" size="15.0" />
+                  <Font name="System Bold" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+               </effect>
+            </Label>
+
+            <!-- Form Elements -->
+            <JFXComboBox fx:id="returnid" layoutX="40.0" layoutY="100.0" onAction="#cmb_returnOnAction" prefHeight="40.0" prefWidth="250.0" promptText="Return ID" style="-fx-background-color: #ffffff15; -fx-background-radius: 10; -fx-prompt-text-fill: #ffffff80; -fx-text-fill: white;" />
+
+            <!-- Labels and Values with consistent styling -->
+            <Label layoutX="40.0" layoutY="170.0" prefHeight="20.0" prefWidth="96.0" text="User ID         :" textFill="#d8adff">
+               <font>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblRecordID" layoutX="150.0" layoutY="100.0" prefHeight="37.0" prefWidth="83.0" text="1" textFill="RED" styleClass="modern-label">
+            <Label fx:id="lbluserID" layoutX="140.0" layoutY="170.0" prefHeight="20.0" prefWidth="66.0" textFill="WHITE">
                <font>
-                  <Font name="Bauhaus 93" size="27.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="140.0" prefHeight="17.0" prefWidth="58.0" text="User ID : " styleClass="modern-label" />
-            <Label fx:id="lbluser" layoutX="120.0" layoutY="140.0" prefHeight="17.0" prefWidth="43.0" text="C001" styleClass="modern-label" />
-            <Label layoutX="50.0" layoutY="170.0" prefHeight="17.0" prefWidth="52.0" text="Book ID : " styleClass="modern-label" />
-            <Label fx:id="lblbookid" layoutX="120.0" layoutY="170.0" prefHeight="17.0" prefWidth="43.0" text="B001" styleClass="modern-label" />
-            <Label layoutX="50.0" layoutY="200.0" prefHeight="17.0" prefWidth="83.0" text="Borrow Date :" styleClass="modern-label" />
-            <Label fx:id="lblborrowdate" layoutX="150.0" layoutY="200.0" prefHeight="17.0" prefWidth="83.0" styleClass="modern-label" />
-            <Label layoutX="50.0" layoutY="230.0" prefHeight="17.0" prefWidth="83.0" text="Return Date :" styleClass="modern-label" />
-            <Label fx:id="lblreturndate" layoutX="150.0" layoutY="230.0" prefHeight="17.0" prefWidth="83.0" styleClass="modern-label" />
-            <TextField fx:id="Tamount" layoutX="50.0" layoutY="260.0" prefHeight="30.0" prefWidth="200.0" promptText="Fine Amount" styleClass="modern-textfield" />
-            <JFXButton layoutX="50.0" layoutY="310.0" onAction="#btnRetureenONAction" text="Return" styleClass="modern-button">
+
+            <Label layoutX="40.0" layoutY="210.0" prefHeight="20.0" prefWidth="102.0" text="User Name   :" textFill="#d8adff">
                <font>
-                  <Font name="Candara Bold" size="13.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
+            </Label>
+            <Label fx:id="lblusername" layoutX="144.0" layoutY="210.0" prefHeight="20.0" prefWidth="66.0" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="40.0" layoutY="250.0" prefHeight="20.0" prefWidth="96.0" text="Fine amount :" textFill="#d8adff">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+
+            <!-- Modern styled text field -->
+            <TextField fx:id="Tpayment" layoutX="40.0" layoutY="330.0" prefHeight="40.0" prefWidth="250.0" promptText="Fine Amount" style="-fx-background-color: #ffffff15; -fx-background-radius: 10; -fx-text-fill: white; -fx-prompt-text-fill: #ffffff80;" />
+
+            <!-- Styled Return Button -->
+            <JFXButton layoutX="40.0" layoutY="405.0" onAction="#btnpaymentOnActi0on" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #ff0080); -fx-background-radius: 20;" text="Add payment" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#ff0080" height="10.0" radius="4.5" width="10.0" />
+               </effect>
             </JFXButton>
+            <Label layoutX="388.0" layoutY="7.0" prefHeight="20.0" prefWidth="52.0" text="Date :" textFill="#d8adff">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbldate" layoutX="442.0" layoutY="8.0" prefHeight="20.0" prefWidth="127.0" textFill="#d8adff">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblfine" layoutX="137.0" layoutY="250.0" prefHeight="20.0" prefWidth="80.0" textFill="#e6e6e6">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblfine" layoutX="353.0" layoutY="97.0" prefHeight="348.0" prefWidth="357.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff20; -fx-text-fill: white;">
+               <columns>
+                  <TableColumn fx:id="colfineID" prefWidth="72.0" text="Fine ID " />
+                  <TableColumn fx:id="coluserid" prefWidth="71.33331298828125" text="User ID " />
+                  <TableColumn fx:id="colamount" prefWidth="115.33331298828125" text="Amount " />
+                  <TableColumn fx:id="colstatus" prefWidth="96.66668701171875" text="Status " />
+               </columns>
+               <effect>
+                  <DropShadow color="#00000040" height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </TableView>
+            <Label layoutX="352.0" layoutY="54.0" text="Fine History" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="77.0" text=" Calculate any fines" textFill="#d8adff">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

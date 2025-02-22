@@ -13,12 +13,12 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainancherpane" prefHeight="560.0" prefWidth="860.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.HomeForm">
+<AnchorPane fx:id="mainancherpane" prefHeight="609.0" prefWidth="1040.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.home.HomeForm">
    <children>
-      <AnchorPane prefHeight="560.0" prefWidth="860.0">
+      <AnchorPane prefHeight="631.0" prefWidth="1040.0">
          <children>
             <!-- Background with glass morphism effect -->
-            <Rectangle arcHeight="20.0" arcWidth="20.0" height="599.0" layoutX="25.0" layoutY="29.0" stroke="TRANSPARENT" width="995.0">
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="652.0" layoutX="-3.0" stroke="TRANSPARENT" width="1093.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
                      <stops>
@@ -65,14 +65,14 @@
             </Rectangle>
 
             <!-- Left sidebar with glass morphism -->
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="544.0" layoutX="50.0" layoutY="50.0" stroke="#ffffff20" strokeWidth="1.0" width="205.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="545.0" layoutX="47.0" layoutY="50.0" stroke="#ffffff20" strokeWidth="1.0" width="205.0">
                <effect>
                   <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
                </effect>
             </Rectangle>
 
             <!-- Library Logo on top of sidebar -->
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="110.0" layoutY="65.0" preserveRatio="true">
+            <ImageView fitHeight="71.0" fitWidth="78.0" layoutX="110.0" layoutY="65.0" preserveRatio="true">
                <image>
                   <Image url="@../images/book.png" />
                </image>
@@ -81,7 +81,7 @@
                </effect>
             </ImageView>
 
-            <Label layoutX="73.0" layoutY="146.0" text="Library System" textFill="WHITE">
+            <Label layoutX="73.0" layoutY="142.0" text="Library System" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -91,8 +91,20 @@
             </Label>
 
             <!-- Menu Items in VBox -->
-            <VBox layoutX="55.0" layoutY="190.0" prefHeight="290.0" prefWidth="190.0" spacing="14.0">
+            <VBox layoutX="55.0" layoutY="176.0" prefHeight="290.0" prefWidth="190.0" spacing="14.0">
                <children>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="270.0" onAction="#btnbackOnActio" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Home " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/pay.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
                   <!-- Add User Button -->
                   <JFXButton alignment="BASELINE_LEFT" onAction="#btnuserOnAction" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Add User" textFill="WHITE">
                      <font>
@@ -190,11 +202,23 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="304.0" onAction="#btnreportOnAcion" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 10;" text="Reports" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
                </children>
             </VBox>
 
             <!-- Exit Button -->
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="536.0" onAction="#btnexitOnAction" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 25;" text="EXIT" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="560.0" onAction="#btnexitOnAction" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 25;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -211,10 +235,10 @@
             </JFXButton>
 
             <!-- Main Content Area with glass morphism -->
-            <AnchorPane fx:id="setancherpane" layoutX="275.0" layoutY="50.0" prefHeight="460.0" prefWidth="560.0">
+            <AnchorPane fx:id="setancherpane" layoutX="275.0" layoutY="50.0" prefHeight="540.0" prefWidth="742.0">
                <children>
                   <!-- Glass morphism panel -->
-                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="539.0" stroke="#ffffff20" strokeWidth="1.0" width="700.0">
+                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="541.0" stroke="#ffffff20" strokeWidth="1.0" width="742.0">
                      <effect>
                         <DropShadow color="#000000" height="20.0" radius="9.5" width="20.0" />
                      </effect>

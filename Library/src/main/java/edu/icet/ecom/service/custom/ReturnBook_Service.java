@@ -5,6 +5,7 @@ import edu.icet.ecom.service.SuperService;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface ReturnBook_Service extends SuperService {
 
@@ -12,6 +13,8 @@ public interface ReturnBook_Service extends SuperService {
     boolean save(Return_Book returnBook) throws SQLException;
     ObservableList<String> getFineDetails();
     String findUser(int retrunID);
-    boolean updateStatus(int returniD , String status);
+    boolean updateStatus(String userId  , String status);
+    List<Return_Book> getAll();
+    ObservableList<String> getUserIDs();
 
 }

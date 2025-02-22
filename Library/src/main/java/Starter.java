@@ -17,16 +17,8 @@ public class Starter extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-//
-//        Injector injector = Guice.createInjector(new AppModule());
-//        FXMLLoader loader  = new FXMLLoader(this.getClass().getResource("/fine/Fine_form.fxml"));
-//        loader.setControllerFactory(injector::getInstance);
-//        this.setancherpane.getChildren().clear();
-//        this.setancherpane.getChildren().add(loader.load());
-
-
         Injector injector = Guice.createInjector(new AppModule());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/Login_form .fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/Home_form .fxml"));
         loader.setControllerFactory(injector::getInstance);
         stage.setScene(new Scene(loader.load()));
         stage.show();

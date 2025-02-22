@@ -1,11 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.report.ReportForm">
+<AnchorPane prefHeight="540.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.report.ReportForm">
    <children>
-      <Button layoutX="53.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnUserReportOnAction" text="User Report" />
+      <!-- Background with glass morphism effect -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="601.0" width="817.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#1a103c" />
+                  <Stop color="#202040" offset="0.5" />
+                  <Stop color="#2e1b65" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow color="#00000080" height="40.0" radius="19.5" width="40.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Decorative glow elements -->
+      <Rectangle arcHeight="300.0" arcWidth="300.0" height="286.0" layoutX="541.0" layoutY="-100.0" opacity="0.15" width="259.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff00ea" />
+                  <Stop color="#9000ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <GaussianBlur radius="50.0" />
+         </effect>
+      </Rectangle>
+
+      <!-- Content Container -->
+      <AnchorPane layoutX="50.0" layoutY="30.0" prefHeight="480.0" prefWidth="642.0">
+         <children>
+            <!-- Glass panel background -->
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="481.0" stroke="#ffffff20" strokeWidth="1.0" width="688.0">
+               <effect>
+                  <DropShadow color="#00000080" height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Rectangle>
+
+            <!-- Title -->
+            <Label layoutX="40.0" layoutY="30.0" text="Reports Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#a64dff" height="15.0" radius="7.0" width="15.0" />
+               </effect>
+            </Label>
+
+            <!-- Report Buttons Container -->
+            <VBox alignment="CENTER" layoutX="40.0" layoutY="100.0" prefHeight="336.0" prefWidth="377.0" spacing="30.0">
+               <!-- User Reports Button -->
+               <JFXButton onAction="#btnUserReportOnAction" prefHeight="90.0" prefWidth="287.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 15;" text="User Reports" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/ripcus.png" />
+                        </image>
+                        <effect>
+                           <InnerShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                        </effect>
+                     </ImageView>
+                  </graphic>
+                  <effect>
+                     <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                  </effect>
+               </JFXButton>
+
+               <!-- Available Books Button -->
+               <JFXButton onAction="#btnbookOnacion" prefHeight="87.0" prefWidth="295.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 15;" text="Available Books" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/ripbook.png" />
+                        </image>
+                        <effect>
+                           <InnerShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                        </effect>
+                     </ImageView>
+                  </graphic>
+                  <effect>
+                     <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                  </effect>
+               </JFXButton>
+
+               <!-- Borrowed Books Button -->
+               <JFXButton onAction="#btnborrowOnAction" prefHeight="73.0" prefWidth="290.0" style="-fx-background-color: #ffffff15; -fx-background-radius: 15;" text="Borrowed Books" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/icons8-return-book-50.png" />
+                        </image>
+                        <effect>
+                           <InnerShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                        </effect>
+                     </ImageView>
+                  </graphic>
+                  <effect>
+                     <DropShadow color="#a64dff" height="10.0" radius="4.5" width="10.0" />
+                  </effect>
+               </JFXButton>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

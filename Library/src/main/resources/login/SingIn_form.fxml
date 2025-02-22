@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.login.SinginForm">
+    <children>
+        <!-- Background with gradient -->
+        <Rectangle arcHeight="20.0" arcWidth="20.0" height="600.0" stroke="TRANSPARENT" width="900.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#1a103c" />
+                        <Stop color="#0066cc" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Decorative elements -->
+        <Rectangle arcHeight="300.0" arcWidth="300.0" height="200.0" layoutX="-50.0" layoutY="400.0" opacity="0.15">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#00e1ff" />
+                        <Stop color="#4400ff" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+            <effect>
+                <GaussianBlur radius="50.0" />
+            </effect>
+        </Rectangle>
+
+        <!-- Login Container -->
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffff10" height="524.0" layoutX="194.0" layoutY="50.0" stroke="#ffffff20" strokeWidth="1.0" width="510.0">
+            <effect>
+                <DropShadow color="#00000080" height="30.0" radius="14.5" width="30.0" />
+            </effect>
+        </Rectangle>
+
+        <!-- Library Logo -->
+        <ImageView fitHeight="88.0" fitWidth="102.0" layoutX="400.0" layoutY="70.0" preserveRatio="true">
+            <image>
+                <Image url="@../images/singin.jpg" />
+            </image>
+            <effect>
+                <DropShadow color="#a64dff" />
+            </effect>
+        </ImageView>
+
+        <!-- Welcome Text -->
+        <Label layoutX="357.0" layoutY="170.0" text="WELCOME" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+            <effect>
+                <DropShadow color="#a64dff" />
+            </effect>
+        </Label>
+
+        <Label layoutX="332.0" layoutY="220.0" text="Library Management System" textFill="#d8adff">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+        <!-- Login Form -->
+        <TextField fx:id="txtEmail" layoutX="300.0" layoutY="280.0" prefHeight="40.0" prefWidth="300.0" promptText="\@gmail.com" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #ffffff80; -fx-background-radius: 5;" />
+
+        <PasswordField fx:id="txtPassword" layoutX="300.0" layoutY="340.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #ffffff20; -fx-text-fill: white; -fx-prompt-text-fill: #ffffff80; -fx-background-radius: 5;" />
+
+        <!-- Sign In Button -->
+        <JFXButton buttonType="RAISED" layoutX="300.0" layoutY="400.0" onAction="#btnLoginOnAction" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: linear-gradient(to right, #7928ca, #a64dff); -fx-background-radius: 5;" text="Sign In" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+            <effect>
+                <DropShadow color="#a64dff" />
+            </effect>
+        </JFXButton>
+
+        <!-- Alternative Sign In -->
+        <Label layoutX="425.0" layoutY="460.0" text="OR" textFill="#ffffff80" />
+
+        <JFXButton buttonType="RAISED" layoutX="300.0" layoutY="480.0" onAction="#btnOtherLoginOnAction" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #ffffff20; -fx-background-radius: 5;" text="Sign in with other" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>

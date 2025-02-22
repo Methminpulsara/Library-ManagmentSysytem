@@ -9,6 +9,7 @@ public interface ReturnBook_Dao extends CrudDao <Return_Book_Entity , String> {
     public int getlastRecordID();
     List<String> getFineDetil();
     String findUser(int returnID);
-    boolean udapetStatus (int returnID, String status);
+    boolean udapetStatus (String  UserId, String status);
 
+    List<String> getUserid();
 }

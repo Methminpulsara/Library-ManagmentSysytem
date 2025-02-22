@@ -1,0 +1,3 @@
+.text-field, .combo-box .text-field {
+    -fx-prompt-text-fill: #E2D6FF; /* Light Purple Prompt Text */
+}

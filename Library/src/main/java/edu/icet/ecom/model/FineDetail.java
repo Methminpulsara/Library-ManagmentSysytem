@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class FineDetail {
 
     private int fineID;
-    private int returnID ;
     private String UserID ;
     private Double fine;
     private String status;

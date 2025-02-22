@@ -1,0 +1,30 @@
+/* Default ComboBox text color (black) */
+.combo-box .list-cell {
+    -fx-text-fill: black;
+}
+
+/* Selected item in ComboBox (text white, background blue) */
+.combo-box .list-cell:filled:selected,
+.combo-box .list-cell:filled:selected:hover {
+    -fx-background-color: #FF6B6B; /* Windows-style blue */
+    -fx-text-fill: white;
+}
+
+/* Ensure dropdown text is black */
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: black;
+}
+
+/* Keep hover effect */
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #D8ADFF;
+}
+
+/* Ensure prompt text remains visible */
+.combo-box .text {
+    -fx-fill: black;
+}

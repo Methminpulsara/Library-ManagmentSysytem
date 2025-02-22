@@ -4,15 +4,13 @@ import com.google.inject.Inject;
 import edu.icet.ecom.entity.Book_entity;
 import edu.icet.ecom.model.Book;
 import edu.icet.ecom.service.custom.Book_service;
+import edu.icet.ecom.util.SetAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -54,10 +52,10 @@ public class BookManegment_form implements Initializable {
     void btnDeleteOnAction(ActionEvent event) {
 
         if (service.deleteBook(Tbookid.getText())){
-            new Alert(Alert.AlertType.INFORMATION,"Book is Deleted ! ").show();
+            SetAlert.getInstance().setAlert("Book is Deleted !");
             loadTable();
             return;
-        }new Alert(Alert.AlertType.INFORMATION,"Book can't delete please try again ! ").show();
+        }SetAlert.getInstance().setAlert("Book can't delete please try again ! ");
 
     }
 
@@ -67,8 +65,8 @@ public class BookManegment_form implements Initializable {
        if (book!=null){
            Tisbn.setText(book.getISBN());Ttitel.setText(book.getTitel());Tauthor.setText(book.getAuthor());Tavelability.setText(book.getAvelebility());
         return;
-       }new Alert(Alert.AlertType.INFORMATION,"can't faind book!").show();
-       //loadTable();
+       }
+        SetAlert.getInstance().setAlert("Can't Find book!");
     }
 
     @FXML
@@ -79,8 +77,10 @@ public class BookManegment_form implements Initializable {
                Ttitel.getText(),
                Tauthor.getText(),
               Tavelability.getText()))){
-           new Alert(Alert.AlertType.INFORMATION,"Book is Updated !").show(); loadTable(); return;
-       }new Alert(Alert.AlertType.ERROR,"Book Can't Update please try again !").show();
+
+          SetAlert.getInstance().setAlert("Book IS Updated !");
+           return;
+       }SetAlert.getInstance().setAlert("Book Can't Update please try again !");
 
     }
     @FXML
@@ -116,4 +116,6 @@ public class BookManegment_form implements Initializable {
         loadTable();
 
     }
+
+
 }

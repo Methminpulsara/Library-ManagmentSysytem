@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="660.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.borrow.Borrow_form">
+<AnchorPane prefHeight="550.0" prefWidth="660.0" style="-fx-background-color: #121212;" stylesheets="@../css/text.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.borrow.Borrow_form">
    <children>
       <!-- Background with glass morphism effect -->
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="601.0" stroke="TRANSPARENT" width="751.0">

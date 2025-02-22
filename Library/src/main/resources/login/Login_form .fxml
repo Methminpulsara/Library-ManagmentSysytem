@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -92,16 +93,6 @@
                      </effect>
                   </ImageView>
 
-                  <!-- Welcoming text -->
-                  <Label layoutX="139.0" layoutY="519.0" text="Welcome to the Future" textFill="WHITE">
-                     <font>
-                        <Font name="Gill Sans Ultra Bold Condensed" size="28.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Label>
-
                   <!-- Right side - login form with glass morphism -->
                   <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff10" height="420.0" layoutX="513.0" layoutY="116.0" stroke="#ffffff20" strokeWidth="1.0" width="340.0">
                      <effect>
@@ -136,7 +127,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <JFXPasswordField fx:id="abminpassword" focusColor="#a64dff" layoutX="553.0" layoutY="316.0" prefHeight="40.0" prefWidth="260.0" promptText="Enter your secure password" style="-fx-text-fill: white;" unFocusColor="#ffffff80">
+                  <JFXPasswordField fx:id="abminpassword" focusColor="#7719d4" layoutX="553.0" layoutY="316.0" prefHeight="40.0" prefWidth="260.0" promptText="Enter your secure password" style="-fx-text-fill: white;" unFocusColor="#ffffff80">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -176,7 +167,7 @@
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="698.0" layoutY="476.0" text="Sign up now" textFill="#d8adff">
+                  <Label layoutX="698.0" layoutY="476.0" onMouseClicked="#singinonaction" text="Sign up now" textFill="#d8adff">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -188,24 +179,22 @@
                      </effect>
                   </Label>
 
-                  <!-- Social login options -->
-                  <Label layoutX="658.0" layoutY="506.0" text="OR" textFill="#ffffff80">
+                  <HBox alignment="CENTER" layoutX="553.0" layoutY="526.0" prefHeight="30.0" prefWidth="260.0" spacing="20.0" />
+                  <Label layoutX="139.0" layoutY="487.0" prefHeight="47.0" prefWidth="348.0" text="Welcome to the Future" textFill="WHITE">
                      <font>
-                        <Font size="12.0" />
+                        <Font name="System Bold" size="32.0" />
                      </font>
+                     <effect>
+                        <DropShadow color="#8a2be2" height="15.0" radius="7.0" width="15.0" />
+                     </effect>
                   </Label>
-
-                  <HBox alignment="CENTER" layoutX="553.0" layoutY="526.0" prefHeight="30.0" prefWidth="260.0" spacing="20.0">
-                     <children>
-                        <!-- Social icons would go here - placeholders -->
-                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#3b5998" height="30.0" width="30.0" />
-                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1da1f2" height="30.0" width="30.0" />
-                        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#db4437" height="30.0" width="30.0" />
-                     </children>
-                  </HBox>
                </children>
             </AnchorPane>
          </children>
       </StackPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/promt.css" />
+      <URL value="@../css/alert.css" />
+   </stylesheets>
 </AnchorPane>

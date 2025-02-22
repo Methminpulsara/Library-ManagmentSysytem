@@ -117,4 +117,18 @@ public class UserDao_impl implements UserDao {
         }
         return false;
     }
+
+    @Override
+    public List<String> getUserIdsHavetoPay() {
+       List<String> userids = new ArrayList<>();
+        try {
+            ResultSet res = CrudUtil.execute("SELECT UserId FROM user GROUP BY UserId HAVING SUM(Fine) > 0");
+           while (res.next()){
+               userids.add(res.getString("UserId"));
+           }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return userids;
+    }
 }

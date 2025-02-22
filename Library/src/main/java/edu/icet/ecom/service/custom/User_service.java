@@ -18,4 +18,5 @@ public interface User_service extends SuperService {
     User_entity serchUser(String user_ID );
     boolean updateFine(String userID,Double fine);
     boolean updatePayment(String userID, Double fine);
+    ObservableList<String> getUsersHaveToPay();
 }

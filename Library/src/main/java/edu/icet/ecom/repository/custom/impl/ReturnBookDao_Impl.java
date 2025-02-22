@@ -24,7 +24,21 @@ public class ReturnBookDao_Impl implements ReturnBook_Dao {
 
     @Override
     public List<Return_Book_Entity> getAll() {
-        return List.of();
+        List <Return_Book_Entity> returnBookEntities = new ArrayList<>();
+        String sql = "select * from return_books";
+        try {
+            ResultSet res = CrudUtil.execute(sql);
+            while(res.next()){
+                returnBookEntities.add(new Return_Book_Entity(
+                        res.getInt(1), res.getInt(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getDouble(8), res.getString(9)
+                ));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return returnBookEntities;
     }
 
     @Override
@@ -81,7 +95,7 @@ public class ReturnBookDao_Impl implements ReturnBook_Dao {
                 return res.next() ? res.getInt(1): null ;
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage()); }
+        }
         return 1;
     }
 
@@ -120,18 +134,33 @@ public class ReturnBookDao_Impl implements ReturnBook_Dao {
     }
 
     @Override
-    public boolean udapetStatus(int returnID, String status) {
+    public boolean udapetStatus(String UserId, String status) {
 
         try {
-            PreparedStatement stm = Db_Connection.getInstance().getConnection().prepareStatement("Update return_books set Status = ? where ReturnID = ?");
+            PreparedStatement stm = Db_Connection.getInstance().getConnection().prepareStatement("Update return_books set Status = ? where UserID = ?");
             stm.setObject(1, status);
-            stm.setObject(2,returnID);
+            stm.setObject(2, UserId);
             return stm.executeUpdate()>0;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
         return false;
+    }
+
+    @Override
+    public List<String> getUserid() {
+
+        List <String> userIds = new ArrayList<>();
+        try {
+            ResultSet res = CrudUtil.execute("SELECT UserId  AS total FROM return_books GROUP BY UserId HAVING SUM(FineAmount) > 0");
+            while(res.next()){
+                userIds.add(res.getString("total"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return userIds;
     }
 }
 
